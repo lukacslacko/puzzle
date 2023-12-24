@@ -1,9 +1,21 @@
 import math
+import cmath
+import numpy
+
+def area(a, b, c):
+    return numpy.linalg.det(numpy.array([[a.real, a.imag, 1], [b.real, b.imag, 1], [c.real, c.imag, 1]])) / 2
 
 
 class Draw:
     def __init__(self):
         self.lines = []
+
+    def clines(self, pts):
+        for i in range(len(pts)-1):
+            self.cline(pts[i], pts[i + 1])
+
+    def cline(self, a, b):
+        self.line(a.real, a.imag, b.real, b.imag)
 
     def line(self, x1, y1, x2, y2):
         self.lines.append((x1, y1, x2, y2))
@@ -28,6 +40,12 @@ class Draw:
         x1 = x + r * math.cos(a)
         y1 = y + r * math.sin(a)
         return x1, y1
+
+    def ctab_out(self, p, a, b, R, r, rho, npts=48):
+        a1 = cmath.phase(a-p)
+        a2 = cmath.phase(b-p)
+        u,v = self.tab_out(p.real, p.imag, a1, a2, R, r, rho, npts)
+        return u[0]+u[1]*1j, v[0]+v[1]*1j
 
     def tab_out(self, x, y, a1, a2, R, r, rho, npts=48):
         a = R + r
@@ -63,6 +81,12 @@ class Draw:
         _, l = self.arc(x, y, R, middle + beta, a2, npts)
         return f, l
 
+    def ctab_in(self, p, a, b, R, r, rho, phase=0, npts=48):
+        a1 = cmath.phase(a-p)
+        a2 = cmath.phase(b-p)+phase
+        u,v = self.tab_in(p.real, p.imag, a1, a2, R, r, rho, npts)
+        return u[0]+u[1]*1j, v[0]+v[1]*1j
+
     def tab_in(self, x, y, a1, a2, R, r, rho, npts=48):
         a = R - r
         b = r + rho
@@ -77,11 +101,11 @@ class Draw:
         p, q = self.shift(x, y, middle + beta, c)
         s, t = self.shift(x, y, middle - beta, c)
         self.arc(x, y, R, a1, middle - beta, npts)
-        _,f=self.arc(s, t, rho, middle - beta, middle - beta + math.pi - alpha, npts)
+        _, f = self.arc(s, t, rho, middle - beta, middle - beta + math.pi - alpha, npts)
         self.arc(u, v, r, middle + math.pi - gamma, middle + math.pi + gamma, npts)
-        l,_=self.arc(p, q, rho, middle + beta - math.pi + alpha, middle + beta, npts)
+        l, _ = self.arc(p, q, rho, middle + beta - math.pi + alpha, middle + beta, npts)
         self.arc(x, y, R, middle + beta, a2, npts)
-        #self.line(*f,*l)
+        # self.line(*f,*l)
         return (x + R * math.cos(a1), y + R * math.sin(a1)), (
             x + R * math.cos(a2),
             y + R * math.sin(a2),

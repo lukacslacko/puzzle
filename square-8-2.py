@@ -19,6 +19,8 @@ gy = -1 + (1 + math.sqrt(2)) / 2 * a * math.cos(math.pi * 22.5 / 180)
 hx = hhx - (hhy - cy)
 hy = hhy + (hhx - cx)
 
+tabr = a * (math.sqrt(2) - 1) / 2 * math.sqrt(2)
+
 d = Draw()
 
 r = 0.4
@@ -33,12 +35,21 @@ with open("4--8-2-a.dxf", "w") as f:
 d = Draw()
 f, l = d.tab_in(0, -1, math.pi * 112.5 / 180, math.pi, r, r * ts, r * ts / 4)
 d.line(-1, -1, *l)
-c, g = d.arc(
+# c, g = d.arc(
+#     hx,
+#     hy,
+#     a * (math.sqrt(2) - 1) / 2 * math.sqrt(2),
+#     math.pi * (90 + 22.5 + 90 - 135) / 180,
+#     math.pi * (90 + 22.5 + 90 + 135) / 180,
+# )
+c, g = d.tab_out(
     hx,
     hy,
-    a * (math.sqrt(2) - 1) / 2 * math.sqrt(2),
     math.pi * (90 + 22.5 + 90 - 135) / 180,
     math.pi * (90 + 22.5 + 90 + 135) / 180,
+    tabr,
+    tabr,
+    tabr / 4,
 )
 d.line(*c, *f)
 d.line(*g, dx, dy)
@@ -52,12 +63,14 @@ with open("4--8-2-b.dxf", "w") as f:
     d.dxf(f)
 
 d = Draw()
-c, g = d.arc(
+c, g = d.tab_out(
     hx,
     hy,
-    a * (math.sqrt(2) - 1) / 2 * math.sqrt(2),
     math.pi * (90 + 22.5 + 90 - 135) / 180,
     math.pi * (90 + 22.5 + 90 + 135) / 180,
+    tabr,
+    tabr,
+    tabr / 4,
 )
 d.line(0, 0, *g)
 d.line(*c, dx, dy)
