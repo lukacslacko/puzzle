@@ -2,8 +2,27 @@ import math
 import cmath
 import numpy
 
+
 def area(a, b, c):
-    return numpy.linalg.det(numpy.array([[a.real, a.imag, 1], [b.real, b.imag, 1], [c.real, c.imag, 1]])) / 2
+    return (
+        numpy.linalg.det(
+            numpy.array([[a.real, a.imag, 1], [b.real, b.imag, 1], [c.real, c.imag, 1]])
+        )
+        / 2
+    )
+
+
+def angles(start, end, center=0, middle=1):
+    print(f"angles({start}, {end}, {center}, {middle})")
+    s = start - center
+    e = end - center
+    m = middle - center
+    print(f"s={s}, e={e}, m={m}")
+    a = cmath.phase(s / m)
+    b = cmath.phase(e / m)
+    p = cmath.phase(m)
+    print(f"a={a}, b={b}, p={p}")
+    return a + p, b + p
 
 
 class Draw:
@@ -11,14 +30,22 @@ class Draw:
         self.lines = []
 
     def clines(self, pts):
-        for i in range(len(pts)-1):
+        for i in range(len(pts) - 1):
             self.cline(pts[i], pts[i + 1])
 
     def cline(self, a, b):
         self.line(a.real, a.imag, b.real, b.imag)
 
+    def cpoly(self, lines):
+        for line in lines:
+            self.clines(line)
+
     def line(self, x1, y1, x2, y2):
         self.lines.append((x1, y1, x2, y2))
+
+    def carc(self, center, radius, a1, a2, npts=48):
+        p, q = self.arc(center.real, center.imag, radius, a1, a2, npts)
+        return (p[0] + p[1] * 1j, q[0] + q[1] * 1j)
 
     def arc(self, x, y, r, a1, a2, npts=48):
         da = (a2 - a1) / npts
@@ -41,11 +68,19 @@ class Draw:
         y1 = y + r * math.sin(a)
         return x1, y1
 
+    def ctabout(self, p, a, R, r, rho):
+        u, v = self.tab_out(p.real, p.imag, a[0], a[1], R, r, rho)
+        return u[0] + u[1] * 1j, v[0] + v[1] * 1j
+
+    def ctabin(self, p, a, R, r, rho):
+        u, v = self.tab_in(p.real, p.imag, a[0], a[1], R, r, rho)
+        return u[0] + u[1] * 1j, v[0] + v[1] * 1j
+
     def ctab_out(self, p, a, b, R, r, rho, npts=48):
-        a1 = cmath.phase(a-p)
-        a2 = cmath.phase(b-p)
-        u,v = self.tab_out(p.real, p.imag, a1, a2, R, r, rho, npts)
-        return u[0]+u[1]*1j, v[0]+v[1]*1j
+        a1 = cmath.phase(a - p)
+        a2 = cmath.phase(b - p)
+        u, v = self.tab_out(p.real, p.imag, a1, a2, R, r, rho, npts)
+        return u[0] + u[1] * 1j, v[0] + v[1] * 1j
 
     def tab_out(self, x, y, a1, a2, R, r, rho, npts=48):
         a = R + r
@@ -55,8 +90,8 @@ class Draw:
         beta = math.acos((a * a + c * c - b * b) / (2 * a * c))
         gamma = math.acos((a * a + b * b - c * c) / (2 * a * b))
         middle = (a1 + a2) / 2
-        if a2 - a1 <= 2 * beta:
-            raise ValueError("Tab too wide")
+        #if a2 - a1 <= 2 * beta:
+        #    raise ValueError("Tab too wide")
         u, v = self.shift(x, y, middle, a)
         p, q = self.shift(x, y, middle + beta, c)
         s, t = self.shift(x, y, middle - beta, c)
@@ -82,10 +117,10 @@ class Draw:
         return f, l
 
     def ctab_in(self, p, a, b, R, r, rho, phase=0, npts=48):
-        a1 = cmath.phase(a-p)
-        a2 = cmath.phase(b-p)+phase
-        u,v = self.tab_in(p.real, p.imag, a1, a2, R, r, rho, npts)
-        return u[0]+u[1]*1j, v[0]+v[1]*1j
+        a1 = cmath.phase(a - p)
+        a2 = cmath.phase(b - p) + phase
+        u, v = self.tab_in(p.real, p.imag, a1, a2, R, r, rho, npts)
+        return u[0] + u[1] * 1j, v[0] + v[1] * 1j
 
     def tab_in(self, x, y, a1, a2, R, r, rho, npts=48):
         a = R - r
@@ -95,8 +130,8 @@ class Draw:
         beta = math.acos((a * a + c * c - b * b) / (2 * a * c))
         gamma = math.acos((a * a + b * b - c * c) / (2 * a * b))
         middle = (a1 + a2) / 2
-        if a2 - a1 <= 2 * beta:
-            raise ValueError("Tab too wide")
+        # if a2 - a1 <= 2 * beta:
+        #     raise ValueError("Tab too wide")
         u, v = self.shift(x, y, middle, a)
         p, q = self.shift(x, y, middle + beta, c)
         s, t = self.shift(x, y, middle - beta, c)
@@ -111,7 +146,59 @@ class Draw:
             y + R * math.sin(a2),
         )
 
+    def linear_tab(self, start, end, tab_radius, rounding_radius, npts=48):
+        middle = (start + end) / 2
+        normal = (end - start) / abs(end - start) * 1j
+        d = math.sqrt(
+            (tab_radius + rounding_radius) ** 2 - (tab_radius - rounding_radius) ** 2
+        )
+
+        def xy(x, y):
+            return middle + (y + 1j * x) * normal
+
+        arcs = []
+
+        arcs.append(
+            self.carc(
+                xy(d, rounding_radius),
+                rounding_radius,
+                *angles(xy(d, 0), xy(0, tab_radius), xy(d, rounding_radius), xy(0, 0)),
+            )
+        )
+        arcs.append(
+            self.carc(
+                xy(0, tab_radius),
+                tab_radius,
+                *angles(
+                    xy(d, rounding_radius),
+                    xy(-d, rounding_radius),
+                    xy(0, tab_radius),
+                    xy(0, 2 * tab_radius),
+                ),
+            )
+        )
+        arcs.append(
+            self.carc(
+                xy(-d, rounding_radius),
+                rounding_radius,
+                *angles(
+                    xy(0, tab_radius), xy(-d, 0), xy(-d, rounding_radius), xy(0, 0)
+                ),
+            )
+        )
+        self.cline(start, arcs[0][0])
+        self.cline(end, arcs[-1][-1])
+        for i in range(len(arcs) - 1):
+            self.cline(arcs[i][-1], arcs[i + 1][0])
+
     def dxf(self, f):
+        if isinstance(f, str):
+            with open(f, "w") as f:
+                self.dxf_to_file(f)
+        else:
+            self.dxf_to_file(f)
+
+    def dxf_to_file(self, f):
         self.dxf_header(f)
         for line in self.lines:
             self.dxf_line(*line, f)
