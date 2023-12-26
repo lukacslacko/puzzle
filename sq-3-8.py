@@ -87,14 +87,103 @@ for i in range(len(simple_polys)):
     d.cpoly([simple_polys[i]])
     d.dxf(f"simple-sq-3-8-{i}.dxf")
 
-octa_r = 0.1
-tri_edge_r = 0.05
+octa = (0.12, 0.05, 0.01)
+tri = (0.12, 0.02, 0.004)
+mid = (0.17, 0.05, 0.01)
 
-tab_r = 0.05
-tab_rho = 0.01
+gap = 0.1
+box = [[A-gap*h-gap*v, B+gap*h-gap*v, C+gap*h+gap*v, D-gap*h+gap*v]]
+# box = False
 
 with DXF("438a") as d:
-    IE, IA = d.ctabout(I, angles(E, A, I, M), octa_r, tab_r, tab_rho)
-    MA, MY = d.ctabout(M, angles(A, Y, M, I), octa_r, tab_r, tab_rho)
+    IE, IA = d.ctabout(I, angles(E, A, I, M), *octa)
+    MA, MY = d.ctabout(M, angles(A, Y, M, I), *octa)
     d.cpoly([[MA,A,IA], [IE,E,U,MY]])
+    if box:
+        d.cpoly(box)
 
+with DXF("438b") as d:
+    PE, PB = d.ctabin(P, angles(E, B, P, I), *mid)
+    IB, _ = d.ctabout(I, angles(B, E, I, P), *octa)
+    d.cpoly([[IB,B,PB], [PE,E,IE]])
+    if box:
+        d.cpoly(box)
+
+with DXF("438c") as d:
+    JF, JB = d.ctabout(J, angles(F, B, J, P), *octa)
+    PB, PF = d.ctabout(P, angles(B, F, P, J), *mid)
+    d.cpoly([[PF,F,JF], [JB,B,PB]])
+    if box:
+        d.cpoly(box)
+
+with DXF("438d") as d:
+    XV, XZ = d.ctabout(X, angles(V, Z, X, J), *octa)
+    JZ, JF = d.ctabout(J, angles(Z, F, J, X), *octa)
+    d.cpoly([[JZ,Z], [XV,V,F,JF]])
+    d.linear_tab(XZ, Z, tri[1], tri[2])
+    if box:
+        d.cpoly(box)
+
+with DXF("438e") as d:
+    NX, NZ = d.ctabout(N, angles(X, Z, N, J), *tri)
+    XZ, XN = d.ctabout(X, angles(Z, N, X, J), *tri)
+    d.cpoly([[XN,NX], [Z,NZ]])
+    d.linear_tab(XZ, Z, tri[1], tri[2])
+    if box:
+        d.cpoly(box)
+
+with DXF("438f") as d:
+    MY, MW = d.ctabout(M, angles(Y, W, M, H), *tri)
+    YW, YM = d.ctabout(Y, angles(W, M, Y, (M+W)/2), *tri)
+    d.cpoly([[YM,MY], [MW,W]])
+    d.linear_tab(W, YW, tri[1], tri[2])
+    if box:
+        d.cpoly(box)
+
+with DXF("438g") as d:
+    YU, YW = d.ctabout(Y, angles(U, W, Y, L), *octa)
+    LW, LH = d.ctabout(L, angles(W, H, L, Y), *octa)
+    d.cpoly([[W,LW], [LH,H,U,YU]])
+    d.linear_tab(W, YW, tri[1], tri[2])
+    if box:
+        d.cpoly(box)
+
+with DXF("438h") as d:
+    PR, PE = d.ctabout(P, angles(R, E, P, U), *mid)
+    d.cpoly([[PR,R,U,E,PE]])
+    if box:
+        d.cpoly(box)
+
+with DXF("438i") as d:
+    PF, PR = d.ctabin(P, angles(F, R, P, V), *mid)
+    d.cpoly([[PF,F,V,R,PR]])
+    if box:
+        d.cpoly(box)
+
+with DXF("438j") as d:
+    IB, IE = d.ctabout(I, angles(B, E, I, P), *octa)
+    IE, IA = d.ctabout(I, angles(E, A, I, M), *octa)
+    d.cpoly([[IA,IB]])
+    if box:
+        d.cpoly(box)
+
+with DXF("438k") as d:
+    MA, MY = d.ctabout(M, angles(A, Y, M, I), *octa)
+    MY, MW = d.ctabout(M, angles(Y, W, M, H), *tri)
+    d.cpoly([[MW,MA]])
+    if box:
+        d.cpoly(box)
+
+with DXF("438l") as d:
+    YU, YW = d.ctabout(Y, angles(U, W, Y, L), *octa)
+    YW, YM = d.ctabout(Y, angles(W, M, Y, (M+W)/2), *tri)
+    d.cpoly([[YM,YU]])
+    if box:
+        d.cpoly(box)
+
+with DXF("438m") as d:
+    PR, PE = d.ctabout(P, angles(R, E, P, U), *mid)
+    PE, PB = d.ctabin(P, angles(E, B, P, I), *mid)
+    d.cpoly([[PB,PR]])
+    if box:
+        d.cpoly(box)
