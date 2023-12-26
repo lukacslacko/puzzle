@@ -1,6 +1,6 @@
 import cmath
 
-from draw import Draw, line_intersection, angles
+from draw import Draw, line_intersection, angles, DXF
 
 eps = cmath.exp(2j * cmath.pi / 8)
 
@@ -65,8 +65,6 @@ V = line_intersection(M,N, F,G)
 P = line_intersection(E,F, B,R)
 Q = line_intersection(H,G, D,S)
 
-octa_r = 0.2
-
 simple_polys = [
     [A,I,E,U,M,A],
     [B,P,E,I,B],
@@ -88,3 +86,15 @@ for i in range(len(simple_polys)):
     d = Draw()
     d.cpoly([simple_polys[i]])
     d.dxf(f"simple-sq-3-8-{i}.dxf")
+
+octa_r = 0.1
+tri_edge_r = 0.05
+
+tab_r = 0.05
+tab_rho = 0.01
+
+with DXF("438a") as d:
+    IE, IA = d.ctabout(I, angles(E, A, I, M), octa_r, tab_r, tab_rho)
+    MA, MY = d.ctabout(M, angles(A, Y, M, I), octa_r, tab_r, tab_rho)
+    d.cpoly([[MA,A,IA], [IE,E,U,MY]])
+

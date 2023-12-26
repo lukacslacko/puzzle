@@ -247,3 +247,15 @@ class Draw:
         f.write("ENDSEC\n")
         f.write("0\n")
         f.write("EOF\n")
+
+class DXF:
+    def __init__(self, basename):
+        self.basename = basename
+        self.draw = Draw()
+    
+    def __enter__(self):
+        return self.draw
+    
+    def __exit__(self, type, value, traceback):
+        self.draw.dxf(f"{self.basename}.dxf")
+        return False
