@@ -27,47 +27,64 @@ T = (P-Q) * cmath.exp(-1j * alpha) * cmath.cos(alpha) + Q
 
 X = B + (A - B) * (.5 + .5j)
 
-d = Draw()
-v = [T-X,P-X,A-X,B-X,Q-X,T-X]
-d.cpoly([[x*1j**i for x in v] for i in range(4)])
-
-S1 = T - X
-S2 = -1j * S1
-S3 = -1j * S2
-S4 = -1j * S3
-
-SA = (S1 + S4) / 2
+I = P-X
+E = A-X
+H = B-X
+L = Q-X
+A = T-X
+B = 1j*A
+C = 1j*B
+D = 1j*C
+F = 1j*E
+G = 1j*F
+I = 1j*L
+J = 1j*I
+K = 1j*J
 
 b = (3**.25-1)/2
 c = (1-3**-.25)/2
-SA = T-X
-SB = 1j * SA
-SC = 1j * SB
-SD = 1j * SC
 
-h = SB-SA
-v = SD-SA
-SP = SA - b*h
-ST = SA - 2*b*h + (1-2*c)*v
-SR = (ST+SB)/2
+h = B-A
+v = D-A
 
-TA = A-X
-TB = B-X
+P1 = A - b*h
+P2 = A - 2*b*h + (1-2*c)*v
+R = (P2+B)/2
 
-SU = line_intersection(SA+c*v,SR,A-X,B-X)
-SR1 = SU + abs(SR-SU)/abs(TB-SU)*(TB-SU)
-SR3 = SU - abs(SR-SU)/abs(TB-SU)*(TB-SU)
-SR2 = SU - (SR-SU)
+S = -R
 
-d.cpoly([[SA,SA+c*v, SR2],[SR,SB,SA],[SR,SA+h+(1-c)*v,SA+h,SA],[SA+c*v,SA+2*c*v+b*h,SA+2*c*v,SA+c*v]])
-# d.linear_tab(SR1,SR,0.03,0.01)
-d.linear_tab(SR,SR3,0.03,0.01)
-# d.linear_tab(SR3,SR2,0.03,0.01)
-d.linear_tab(SR2,SR1,0.03,0.01)
+M = A + c*v
+W = A + 2*c*v
+Y = A + 2*c*v + b*h
+X = -Y
+Z = -W
+N = -M
 
-d.ctabout(SU, angles(SR,SR1,SU,(SR+SR1)/2), abs(SR-SU), 0.03, 0.01)
-d.ctabout(SU, angles(SR2,SR3,SU,(SR2+SR3)/2), abs(SR-SU), 0.03, 0.01)
-# d.ctabin(SU, angles(SR1,SR2,SU,(SR2+SR1)/2), abs(SR-SU), 0.03, 0.01)
-# d.ctabin(SU, angles(SR3,SR,SU,(SR+SR3)/2), abs(SR-SU), 0.03, 0.01)
+U = line_intersection(M,N, E,H)
+V = line_intersection(M,N, F,G)
+P = line_intersection(E,F, B,R)
+Q = line_intersection(H,G, D,S)
 
-d.dxf("sq-3-8-a.dxf")
+octa_r = 0.2
+
+simple_polys = [
+    [A,I,E,U,M,A],
+    [B,P,E,I,B],
+    [J,F,P,B,J],
+    [Z,X,V,F,J,Z],
+    [N,X,Z,N],
+    [C,K,G,V,N,C],
+    [D,Q,G,K,D],
+    [D,L,H,Q,D],
+    [W,Y,U,H,L,W],
+    [M,Y,W,M],
+    [E,P,R,U,E],
+    [F,V,R,P,F],
+    [G,Q,S,V,G],
+    [H,U,S,Q,H],
+]
+
+for i in range(len(simple_polys)):
+    d = Draw()
+    d.cpoly([simple_polys[i]])
+    d.dxf(f"simple-sq-3-8-{i}.dxf")
