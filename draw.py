@@ -11,6 +11,8 @@ def area(a, b, c):
         / 2
     )
 
+def dot(a, b):
+    return a.real * b.real + a.imag * b.imag
 
 def angles(start, end, center=0, middle=1):
     print(f"angles({start}, {end}, {center}, {middle})")
@@ -209,6 +211,126 @@ class Draw:
         for i in range(len(arcs) - 1):
             self.cline(arcs[i][-1], arcs[i + 1][0])
 
+    def arc_c(self, center, vstart, vend, prev, dir=1):
+        p = cmath.phase((vend / vstart)**dir)
+        print(f"----- {p}")
+        if p < 0:
+            p += 2 * math.pi
+        print(f"..... {p}")
+        e = cmath.exp(1j * p / 24)
+        for i in range(24):
+            nxt = center + vstart * (e ** (dir * (i+1)))
+            self.cline(prev, nxt)
+            prev = nxt
+        return prev
+    
+    def along(self, center, start, radius, tab_radius, rounding_radius):
+        vs = start - center
+        return center + vs / abs(vs) * radius
+
+    def out_tab(self, center, start, end, middle, radius, tab_radius, rounding_radius, prev):
+        vs = start - center
+        ve = end - center
+        vs /= abs(vs)
+        ve /= abs(ve)
+        vm = (vs + ve) / 2
+        vm /= abs(vm)
+        if dot(vm, middle - center) < 0:
+            vm *= -1
+        vs *= radius
+        ve *= radius
+        a = radius + rounding_radius
+        b = radius + tab_radius
+        c = tab_radius + rounding_radius
+        alpha = math.acos((b * b + c * c - a * a) / (2 * b * c))
+        beta = math.acos((a * a + c * c - b * b) / (2 * a * c))
+        gamma = math.acos((a * a + b * b - c * c) / (2 * a * b))
+        vu = vm * cmath.exp(-1j * gamma) * radius
+        vq = vm * cmath.exp(-1j * gamma) * a 
+        vp = vm * b
+        vv = vm * cmath.exp(1j * gamma) * radius
+        vr = vm * cmath.exp(1j * gamma) * a 
+        vqp = vp - vq
+        vw = vq + vqp / abs(vqp) * rounding_radius
+        vrp = vp - vr
+        vt = vr + vrp / abs(vrp) * rounding_radius
+
+        prev = self.arc_c(center, vs, vu, prev)
+        prev = self.arc_c(center + vq, vu-vq, vw-vq, prev, dir=-1)
+        prev = self.arc_c(center + vp, vw-vp, vt-vp, prev)
+        prev = self.arc_c(center + vr, vt-vr, vv-vr, prev, dir=-1)
+        prev = self.arc_c(center, vv, ve, prev)
+        return prev
+
+    def in_tab(self, center, start, end, middle, radius, tab_radius, rounding_radius, prev):
+        vs = start - center
+        ve = end - center
+        vs /= abs(vs)
+        ve /= abs(ve)
+        vm = (vs + ve) / 2
+        vm /= abs(vm)
+        if dot(vm, middle - center) < 0:
+            vm *= -1
+        vs *= radius
+        ve *= radius
+        a = radius - rounding_radius
+        b = radius - tab_radius
+        c = tab_radius + rounding_radius
+        alpha = math.acos((b * b + c * c - a * a) / (2 * b * c))
+        beta = math.acos((a * a + c * c - b * b) / (2 * a * c))
+        gamma = math.acos((a * a + b * b - c * c) / (2 * a * b))
+        vu = vm * cmath.exp(-1j * gamma) * radius
+        vq = vm * cmath.exp(-1j * gamma) * a / radius
+        vp = vm * b
+        vv = vm * cmath.exp(1j * gamma) * radius
+        vr = vm * cmath.exp(1j * gamma) * a / radius
+        vqp = vp - vq
+        vs = vq + vqp / abs(vqp) * rounding_radius
+        vrp = vp - vr
+        vt = vr + vrp / abs(vrp) * rounding_radius
+
+        prev = self.arc_c(center, vs, vu, prev)
+        prev = self.arc_c(center, vu, vs, prev)
+        prev = self.arc_c(center, vs, vt, prev, dir=-1)
+        prev = self.arc_c(center, vt, vv, prev)
+        prev = self.arc_c(center, vv, ve, prev)
+        return prev
+    
+    def tab_line(self, start, end, radius, tab_radius, rounding_radius, dir=1):
+        v = end - start
+        v /= abs(v)
+        m = (start + end) / 2
+        n = v * 1j * dir
+        d = cmath.sqrt((tab_radius + rounding_radius) ** 2 - (tab_radius - rounding_radius) ** 2)
+        a = m - d*v
+        b = m + d*v
+        p = m + tab_radius*n
+        q = a + rounding_radius*n
+        r = b + rounding_radius*n
+        vqp = p - q
+        u = q + vqp / abs(vqp) * rounding_radius
+        vrp = p - r
+        t = r + vrp / abs(vrp) * rounding_radius
+        self.cline(start, a)
+        prev = self.arc_c(q, a-q, u-q, a, dir=dir)
+        prev = self.arc_c(p, u-p, t-p, prev, dir=-dir)
+        prev = self.arc_c(r, t-r, b-r, prev, dir=dir)
+        self.cline(b, end)
+        return end
+    
+    def svg(self, f):
+        if isinstance(f, str):
+            with open(f, "w") as f:
+                self.svg_to_file(f)
+        else:
+            self.svg_to_file(f)
+
+    def svg_to_file(self, f):
+        f.write("<svg>")
+        for line in self.lines:
+            f.write(f"<line x1='{line[0]}' y1='{line[1]}' x2='{line[2]}' y2='{line[3]}' stroke='black'/>")
+        f.write("</svg>")
+
     def dxf(self, f):
         if isinstance(f, str):
             with open(f, "w") as f:
@@ -219,7 +341,7 @@ class Draw:
     def dxf_to_file(self, f):
         self.dxf_header(f)
         for line in self.lines:
-            self.dxf_line(*line, f)
+            self.dxf_line(*[c*100 for c in line], f)
         self.dxf_footer(f)
 
     def dxf_line(self, x1, y1, x2, y2, f):
@@ -258,4 +380,5 @@ class DXF:
     
     def __exit__(self, type, value, traceback):
         self.draw.dxf(f"{self.basename}.dxf")
+        self.draw.svg(f"{self.basename}.svg")
         return False

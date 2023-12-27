@@ -93,12 +93,21 @@ mid = (0.17, 0.05, 0.01)
 
 gap = 0.1
 box = [[A-gap*h-gap*v, B+gap*h-gap*v, C+gap*h+gap*v, D-gap*h+gap*v]]
-# box = False
+box = False
 
 with DXF("438a") as d:
-    IE, IA = d.ctabout(I, angles(E, A, I, M), *octa)
-    MA, MY = d.ctabout(M, angles(A, Y, M, I), *octa)
-    d.cpoly([[MA,A,IA], [IE,E,U,MY]])
+    # IE, IA = d.ctabout(I, angles(E, A, I, M), *octa)
+    # MA, MY = d.ctabout(M, angles(A, Y, M, I), *octa)
+    # d.cpoly([[MA,A,IA], [IE,E,U,MY]])
+    IE = d.along(I, E, *octa)
+    IA = d.out_tab(I, E, A, M, *octa, IE)
+    d.cline(IA,A)
+    MA = d.along(M, A, *octa)
+    d.cline(A,MA)
+    MU = d.out_tab(M, A, U, E, *octa, MA)
+    d.cline(MU,U)
+    d.cline(U,E)
+    d.cline(E,IE)
     if box:
         d.cpoly(box)
 
@@ -161,9 +170,16 @@ with DXF("438i") as d:
         d.cpoly(box)
 
 with DXF("438j") as d:
-    IB, IE = d.ctabout(I, angles(B, E, I, P), *octa)
-    IE, IA = d.ctabout(I, angles(E, A, I, M), *octa)
-    d.cpoly([[IA,IB]])
+    # IB, IE = d.ctabout(I, angles(B, E, I, P), *octa)
+    # IE, IA = d.ctabout(I, angles(E, A, I, M), *octa)
+    # d.cpoly([[IA,IB]])
+    # if box:
+    #     d.cpoly(box)
+
+    IB = d.along(I, B, *octa)
+    IE = d.out_tab(I, B, E, P, *octa, IB)
+    IA = d.out_tab(I, E, A, M, *octa, IE)
+    d.cline(IA, IB)
     if box:
         d.cpoly(box)
 
@@ -187,3 +203,11 @@ with DXF("438m") as d:
     d.cpoly([[PB,PR]])
     if box:
         d.cpoly(box)
+
+with DXF("438n") as d:
+    JZ, JF = d.ctabout(J, angles(Z, F, J, X), *octa)
+    JF, JB = d.ctabout(J, angles(F, B, J, P), *octa)
+    d.cpoly([[JB,JZ]])
+    if box:
+        d.cpoly(box)
+        
