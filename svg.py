@@ -1,5 +1,6 @@
 import cmath
 
+COLORS = ["pink", "lightblue", "lightgreen", "yellow", "orange", "red", "purple"]
 
 class Path:
     def __init__(self):
@@ -45,9 +46,10 @@ class SVG:
             '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="%d" height="%d">'
             % (width, height)
         )
+        scale = min(width, height) / 2
         self.svg.append(
-            '<g transform="translate(%d,%d) scale(%d,%d)">'
-            % (width / 2, height / 2, width / 2, height / 2)
+            '<g transform="translate(%d,%d) scale(%d)">'
+            % (width / 2, height / 2, scale)
         )
         self.svg.append(
             '<g transform="translate(%f,%f) scale(%f)">'
@@ -57,10 +59,13 @@ class SVG:
             '<g transform="translate(%f,%f)">' % (-center.real, -center.imag)
         )
 
-    def draw_path(self, path: str, fill: str, stroke: str, stroke_width: float):
+    def draw_path(self, path: str, fill: str, stroke: str = "black", stroke_width: float = 0.015, shift: complex = 0, rotate: float = 0):
+        self.svg.append(f"<g transform='translate({shift.real},{shift.imag})'>")
+        self.svg.append(f"<g transform='rotate({rotate})'>")
         self.svg.append(
             f"<path d='{path}' fill='{fill}' stroke='{stroke}' stroke-width='{stroke_width}' />"
         )
+        self.svg.append("</g></g>")
 
     def mark(self, point: complex, name: str, align: str = "tl", size: float = 0.2):
         baseline = {"t": "auto", "m": "middle", "b": "hanging"}[align[0]]
