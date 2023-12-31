@@ -1,0 +1,45 @@
+import cmath
+
+from svg import Path
+
+
+def line_intersection(
+    start1: complex, end1: complex, start2: complex, end2: complex
+) -> complex:
+    x1, y1 = start1.real, start1.imag
+    x2, y2 = end1.real, end1.imag
+    x3, y3 = start2.real, start2.imag
+    x4, y4 = end2.real, end2.imag
+    x = ((x1 * y2 - y1 * x2) * (x3 - x4) - (x1 - x2) * (x3 * y4 - y3 * x4)) / (
+        (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4)
+    )
+    y = ((x1 * y2 - y1 * x2) * (y3 - y4) - (y1 - y2) * (x3 * y4 - y3 * x4)) / (
+        (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4)
+    )
+    return complex(x, y)
+
+
+def along(start: complex, end: complex, distance: float) -> complex:
+    return start + (end - start) * distance / abs(end - start)
+
+
+def linear_tab(start: complex, end: complex, radius: float, path: Path, *, left: bool) -> None:
+    horizontal = end - start
+    horizontal /= abs(horizontal)
+    vertical = horizontal * (1j if left else -1j)
+    middle = (start + end) / 2
+    tab_center = middle + vertical * radius
+    rounding_radius = radius * 0.2
+    touch_distance = cmath.sqrt(
+        (radius + rounding_radius) ** 2 - (radius - rounding_radius) ** 2
+    )
+    start_touch_point = middle - horizontal * touch_distance
+    end_touch_point = middle + horizontal * touch_distance
+    start_rounding_center = start_touch_point + vertical * rounding_radius
+    end_rounding_center = end_touch_point + vertical * rounding_radius
+
+    path.line(start_touch_point)
+    path.arc(rounding_radius, along(start_rounding_center, tab_center, rounding_radius), sweep=left)
+    path.arc(radius, along(end_rounding_center, tab_center, rounding_radius), large_arc=True, sweep=not left)
+    path.arc(rounding_radius, end_touch_point, sweep=left)
+    path.line(end)
