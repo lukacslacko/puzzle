@@ -82,6 +82,10 @@ simple_polys = [
     [H,U,S,Q,H],
 ]
 
+d = Draw()
+d.cpoly(simple_polys)
+d.dxf("simple-sq-3-8-all.dxf")
+
 for i in range(len(simple_polys)):
     d = Draw()
     d.cpoly([simple_polys[i]])

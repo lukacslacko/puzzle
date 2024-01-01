@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="700" height="700">
+<g transform="translate(350,350) scale(350)">
+<g transform="translate(0.000000,0.000000) scale(0.285714)">
+<g transform="translate(0.000000,0.000000)">
+<g transform='translate(-1.5,-1.0)'>
+<g transform='rotate(0)'>
+<g transform='scale(1,1)'>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M -1.0 -1.0 L 1.0 -1.0 L -0.3160740129524926 -0.24016431434840735 L -0.6839259870475074 -0.5196713713031853 L -1.0 -0.7598356856515927 L -1.0 -1.0' fill='pink' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 1.0 -1.0 L 1.0 0.5196713713031853 L 0.6839259870475074 0.5196713713031853 L -0.3160740129524926 -0.24016431434840735 L 1.0 -1.0' fill='lightblue' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 1.0 1.0 L -1.0 1.0 L 0.3160740129524926 0.24016431434840735 L 0.6839259870475074 0.5196713713031853 L 1.0 0.7598356856515927 L 1.0 1.0' fill='lightgreen' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M -1.0 1.0 L -1.0 -0.5196713713031853 L -0.6839259870475074 -0.5196713713031853 L 0.3160740129524926 0.24016431434840735 L -1.0 1.0' fill='yellow' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M -1.0 -0.7598356856515927 L -0.6839259870475074 -0.5196713713031853 L -1.0 -0.5196713713031853 L -1.0 -0.7598356856515927' fill='orange' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 1.0 0.5196713713031853 L 1.0 0.7598356856515927 L 0.6839259870475074 0.5196713713031853 L 1.0 0.5196713713031853' fill='red' stroke='black' stroke-width='0.015' />
+</g></g>
+</g></g></g>
+<g transform='translate(1.5,-1.0)'>
+<g transform='rotate(0)'>
+<g transform='scale(1,1)'>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M -0.6839259870475074 -0.7598356856515927 L 1.3160740129524926 -0.7598356856515927 L 0.0 0.0 L -0.3678519740950148 -0.27950705695477795 L -0.6839259870475074 -0.5196713713031853 L -0.6839259870475074 -0.7598356856515927' fill='pink' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 1.3160740129524926 -0.7598356856515927 L 1.3160740129524926 0.7598356856515927 L 1.0 0.7598356856515927 L 0.0 0.0 L 1.3160740129524926 -0.7598356856515927' fill='lightblue' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 0.6839259870475074 0.7598356856515927 L -1.3160740129524926 0.7598356856515927 L 0.0 0.0 L 0.3678519740950148 0.27950705695477795 L 0.6839259870475074 0.5196713713031853 L 0.6839259870475074 0.7598356856515927' fill='lightgreen' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M -1.3160740129524926 0.7598356856515927 L -1.3160740129524926 -0.7598356856515927 L -1.0 -0.7598356856515927 L 0.0 0.0 L -1.3160740129524926 0.7598356856515927' fill='yellow' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M -0.6839259870475074 -0.5196713713031853 L -0.6839259870475074 -0.7598356856515927 L -1.0 -0.7598356856515927 L -0.6839259870475074 -0.5196713713031853' fill='orange' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 0.6839259870475074 0.5196713713031853 L 0.6839259870475074 0.7598356856515927 L 1.0 0.7598356856515927 L 0.6839259870475074 0.5196713713031853' fill='red' stroke='black' stroke-width='0.015' />
+</g></g>
+</g></g></g>
+<g transform='translate(1.5,1.0)'>
+<g transform='rotate(0)'>
+<g transform='scale(1,1)'>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 0.6839259870475074 0.7598356856515927 L -1.3160740129524926 0.7598356856515927 L 0.0 1.5196713713031853 L 0.3678519740950148 1.2401643143484073 L 0.6839259870475074 1.0 L 0.6839259870475074 0.7598356856515927' fill='pink' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 1.3160740129524926 -0.7598356856515927 L 1.3160740129524926 0.7598356856515927 L 1.0 0.7598356856515927 L 0.0 0.0 L 1.3160740129524926 -0.7598356856515927' fill='lightblue' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 0.6839259870475074 0.7598356856515927 L -1.3160740129524926 0.7598356856515927 L 0.0 0.0 L 0.3678519740950148 0.27950705695477795 L 0.6839259870475074 0.5196713713031853 L 0.6839259870475074 0.7598356856515927' fill='lightgreen' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 1.3160740129524926 2.279507056954778 L 1.3160740129524926 0.7598356856515927 L 1.0 0.7598356856515927 L 0.0 1.5196713713031853 L 1.3160740129524926 2.279507056954778' fill='yellow' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 0.6839259870475074 1.0 L 0.6839259870475074 0.7598356856515927 L 1.0 0.7598356856515927 L 0.6839259870475074 1.0' fill='orange' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 0.6839259870475074 0.5196713713031853 L 0.6839259870475074 0.7598356856515927 L 1.0 0.7598356856515927 L 0.6839259870475074 0.5196713713031853' fill='red' stroke='black' stroke-width='0.015' />
+</g></g>
+</g></g></g>
+<g transform='translate(-1.5,-1.0)'>
+<g transform='rotate(0)'>
+<g transform='scale(1,1)'>
+<text font-family="monospace" x="-1.000000" y="-1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">A</text>
+<text font-family="monospace" x="1.000000" y="-1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">B</text>
+<text font-family="monospace" x="1.000000" y="1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">C</text>
+<text font-family="monospace" x="-1.000000" y="1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">D</text>
+<text font-family="monospace" x="-1.000000" y="-0.759836" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">P</text>
+<text font-family="monospace" x="-1.000000" y="-0.519671" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">R</text>
+<text font-family="monospace" x="1.000000" y="0.759836" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">Q</text>
+<text font-family="monospace" x="1.000000" y="0.519671" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">S</text>
+<text font-family="monospace" x="-0.683926" y="-0.519671" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">T</text>
+<text font-family="monospace" x="0.683926" y="0.519671" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">U</text>
+<text font-family="monospace" x="-0.316074" y="-0.240164" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">W</text>
+<text font-family="monospace" x="0.316074" y="0.240164" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">V</text>
+<text font-family="monospace" x="-1.000000" y="-1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">A</text>
+<text font-family="monospace" x="1.000000" y="-1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">B</text>
+<text font-family="monospace" x="1.000000" y="1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">C</text>
+<text font-family="monospace" x="-1.000000" y="1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">D</text>
+<text font-family="monospace" x="-1.000000" y="-0.759836" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">P</text>
+<text font-family="monospace" x="-1.000000" y="-0.519671" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">R</text>
+<text font-family="monospace" x="1.000000" y="0.759836" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">Q</text>
+<text font-family="monospace" x="1.000000" y="0.519671" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">S</text>
+<text font-family="monospace" x="-0.683926" y="-0.519671" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">T</text>
+<text font-family="monospace" x="0.683926" y="0.519671" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">U</text>
+<text font-family="monospace" x="-0.316074" y="-0.240164" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">W</text>
+<text font-family="monospace" x="0.316074" y="0.240164" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">V</text>
+</g></g></g>
+<g transform='translate(1.5,-1.0)'>
+<g transform='rotate(0)'>
+<g transform='scale(1,1)'>
+</g></g></g>
+<g transform='translate(1.5,1.0)'>
+<g transform='rotate(0)'>
+<g transform='scale(1,1)'>
+</g></g></g></g></g></g></svg>
