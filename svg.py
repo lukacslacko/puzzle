@@ -1,7 +1,7 @@
 import cmath
 import jigsaw
 
-COLORS = ["pink", "lightblue", "lightgreen", "yellow", "orange", "red", "purple"]
+COLORS = ["pink", "lightblue", "lightgreen", "yellow", "orange", "red", "purple", "gray"]
 
 
 class Path:
@@ -65,10 +65,11 @@ class Path:
 
 
 class SVGTransformation:
-    def __init__(self, svg: "SVG", shift: complex = 0, rotate: float = 0):
+    def __init__(self, svg: "SVG", shift: complex = 0, rotate: float = 0, mirror: bool = False):
         transformations_elements = [
             f"<g transform='translate({shift.real},{shift.imag})'>",
             f"<g transform='rotate({rotate})'>",
+            f"<g transform='scale({-1 if mirror else 1},1)'>"
         ]
         for element in transformations_elements:
             svg.svg.append(element)
@@ -79,8 +80,8 @@ class SVGTransformation:
         return self
 
     def __exit__(self, type, value, traceback):
-        self.svg.svg.append("</g></g>")
-        self.svg.marks.append("</g></g>")
+        self.svg.svg.append("</g></g></g>")
+        self.svg.marks.append("</g></g></g>")
 
 
 class SVG:
@@ -140,8 +141,8 @@ class SVG:
             % (point.real, point.imag, anchor, baseline, font_size, name)
         )
 
-    def transformation(self, shift: complex = 0, rotate: float = 0):
-        return SVGTransformation(self, shift, rotate)
+    def transformation(self, shift: complex = 0, rotate: float = 0, mirror: bool = False):
+        return SVGTransformation(self, shift, rotate, mirror)
 
     def __str__(self):
         return "\n".join(self.svg) + "\n" + "\n".join(self.marks) + "</g></g></g></svg>"
