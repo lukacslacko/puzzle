@@ -40,6 +40,26 @@ class Path:
         jigsaw.linear_tab(self.current, end, radius, self, left=left)
         self.current = end
 
+    def circular_tab(
+        self,
+        center: complex,
+        end: complex,
+        towards: complex,
+        radius: float,
+        inwards: bool,
+    ):
+        jigsaw.circular_tab(
+            center,
+            self.current,
+            end,
+            towards,
+            abs(end - center),
+            radius,
+            inwards=inwards,
+            path=self,
+        )
+        self.current = end
+
     def __str__(self):
         return " ".join(map(str, self.path))
 
@@ -61,6 +81,7 @@ class SVGTransformation:
     def __exit__(self, type, value, traceback):
         self.svg.svg.append("</g></g>")
         self.svg.marks.append("</g></g>")
+
 
 class SVG:
     def __init__(
