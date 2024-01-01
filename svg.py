@@ -106,14 +106,14 @@ class SVGTransformation:
 
 class SVG:
     def __init__(
-        self, center: complex, size: float, width: int, height: int, filename: str
+        self, center: complex, size: float, width: int, height: int, filename: str, suffix: str = ""
     ):
         self.center = center
         self.size = size
         self.width = width
         self.height = height
         if filename.endswith("py"):
-            self.filename = filename[:-2] + "svg"
+            self.filename = filename[:-3] + suffix + ".svg"
         else:
             self.filename = filename
         self.svg = []
@@ -161,7 +161,7 @@ class SVG:
             % (point.real, point.imag, anchor, baseline, font_size, name)
         )
 
-    def mark_all_caps(self, named_points_dicts: list[dict]) -> None:
+    def mark_all_caps(self, named_points_dicts: list[dict], size: float=0.2) -> None:
         for named_points_dict in named_points_dicts:
             for name, value in named_points_dict.items():
                 if (
@@ -169,7 +169,7 @@ class SVG:
                     or isinstance(value, int)
                     or isinstance(value, float)
                 ) and name.isupper():
-                    self.mark(value, name, "bc")
+                    self.mark(value, name, "bc", size)
 
     def transformation(
         self, shift: complex = 0, rotate: float = 0, mirror: bool = False
