@@ -3,79 +3,47 @@
 <g transform="translate(350,350) scale(350)">
 <g transform="translate(0.000000,0.000000) scale(0.333333)">
 <g transform="translate(0.000000,0.000000)">
-<g transform='translate(-1.5,-1.0)'>
+<g transform='translate(-1.5,-1.25)'>
 <g transform='rotate(0)'>
 <g transform='scale(1,1)'>
 <g transform='translate(0,0)'>
 <g transform='rotate(0)'>
-<path d='M 1.0 -1.0 L 1 0 L -0.43817072552501357 -0.49098476656751766 L 0.1442906434811488 -1.0 L 1.0 -1.0' fill='pink' stroke='black' stroke-width='0.015' />
+<path d='M 1.0 1.0 L -0.14429064348114973 1.0 L -0.43817072552501357 -0.49098476656751766 L 1 0 L 1.0 1.0' fill='pink' stroke='black' stroke-width='0.015' />
 </g></g>
 <g transform='translate(0,0)'>
 <g transform='rotate(0)'>
-<path d='M 1 0 L 1.0 1.0 L -0.14429064348114973 1.0 L -0.43817072552501357 -0.49098476656751766 L 1 0' fill='lightblue' stroke='black' stroke-width='0.015' />
+<path d='M -1.0 1.0 L -1 0 L -0.43817072552501357 -0.49098476656751766 L -0.14429064348114973 1.0 L -1.0 1.0' fill='lightblue' stroke='black' stroke-width='0.015' />
 </g></g>
 <g transform='translate(0,0)'>
 <g transform='rotate(0)'>
-<path d='M -0.14429064348114973 1.0 L -1.0 1.0 L -1 0 L -0.43817072552501357 -0.49098476656751766 L -0.14429064348114973 1.0' fill='lightgreen' stroke='black' stroke-width='0.015' />
+<path d='M -1.0 -1.0 L 0.1442906434811488 -1.0 L -1 0 L -1.0 -1.0' fill='lightgreen' stroke='black' stroke-width='0.015' />
 </g></g>
 <g transform='translate(0,0)'>
 <g transform='rotate(0)'>
-<path d='M -1 0 L -1.0 -1.0 L 0.1442906434811488 -1.0 L -1 0' fill='yellow' stroke='black' stroke-width='0.015' />
+<path d='M 1.0 -1.0 L 1 0 L -0.43817072552501357 -0.49098476656751766 L 0.1442906434811488 -1.0 L 1.0 -1.0' fill='yellow' stroke='black' stroke-width='0.015' />
 </g></g>
 </g></g></g>
-<g transform='translate(0.5,0.0)'>
-<g transform='rotate(0)'>
-<g transform='scale(1,1)'>
-<g transform='translate(0,0)'>
-<g transform='rotate(0)'>
-<path d='M 1.0 -1.0 L 1 0 L -0.43817072552501357 -0.49098476656751766 L 0.1442906434811488 -1.0 L 1.0 -1.0' fill='pink' stroke='black' stroke-width='0.015' />
-</g></g>
-<g transform='translate(1,0)'>
-<g transform='rotate(180)'>
-<g transform='scale(1,1)'>
-<g transform='translate(-1,0)'>
+<g transform='translate(0.5,-0.5)'>
 <g transform='rotate(0)'>
 <g transform='scale(1,1)'>
 <g transform='translate(0,0)'>
 <g transform='rotate(0)'>
-<path d='M 1 0 L 1.0 1.0 L -0.14429064348114973 1.0 L -0.43817072552501357 -0.49098476656751766 L 1 0' fill='lightblue' stroke='black' stroke-width='0.015' />
+<path d='M 1.0 -1.0 L 2.14429064348115 -1.0 L 2.438170725525014 0.49098476656751766 L 1 0 L 1.0 -1.0' fill='pink' stroke='black' stroke-width='0.015' />
 </g></g>
-</g></g></g>
-</g></g></g>
-<g transform='translate(0.1442906434811488,-1.0)'>
-<g transform='rotate(180)'>
-<g transform='scale(1,1)'>
-<g transform='translate(-0.1442906434811488,1.0)'>
-<g transform='rotate(0)'>
-<g transform='scale(1,1)'>
 <g transform='translate(0,0)'>
 <g transform='rotate(0)'>
-<path d='M -1 0 L -1.0 -1.0 L 0.1442906434811488 -1.0 L -1 0' fill='yellow' stroke='black' stroke-width='0.015' />
+<path d='M 2.14429064348115 -1.0 L 1.8504105614372859 -2.4909847665675175 L 1.2885812869622995 -2.0 L 1.2885812869622995 -1.0 L 2.14429064348115 -1.0' fill='lightblue' stroke='black' stroke-width='0.015' />
 </g></g>
-</g></g></g>
-</g></g></g>
-<g transform='translate(1,0)'>
-<g transform='rotate(180)'>
-<g transform='scale(1,1)'>
-<g transform='translate(-1,0)'>
-<g transform='rotate(0)'>
-<g transform='scale(1,1)'>
-<g transform='translate(-0.14429064348114973,1.0)'>
-<g transform='rotate(180)'>
-<g transform='scale(1,1)'>
-<g transform='translate(0.14429064348114973,-1.0)'>
-<g transform='rotate(0)'>
-<g transform='scale(1,1)'>
 <g transform='translate(0,0)'>
 <g transform='rotate(0)'>
-<path d='M -0.14429064348114973 1.0 L -1.0 1.0 L -1 0 L -0.43817072552501357 -0.49098476656751766 L -0.14429064348114973 1.0' fill='lightgreen' stroke='black' stroke-width='0.015' />
+<path d='M 0.1442906434811488 -1.0 L 1.2885812869622977 -2.0 L 1.2885812869622977 -1.0 L 0.1442906434811488 -1.0' fill='lightgreen' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 1.0 -1.0 L 1 0 L -0.43817072552501357 -0.49098476656751766 L 0.1442906434811488 -1.0 L 1.0 -1.0' fill='yellow' stroke='black' stroke-width='0.015' />
 </g></g>
 </g></g></g>
-</g></g></g>
-</g></g></g>
-</g></g></g>
-</g></g></g>
-<g transform='translate(-1.5,1.5)'>
+<g transform='translate(-1.5,1.7)'>
 <g transform='rotate(0)'>
 <g transform='scale(1,1)'>
 <g transform='translate(0,0)'>
@@ -94,90 +62,72 @@
 <g transform='rotate(0)'>
 <path d='M 1.0 -1.0 L 1.0 -0.6 L 0.7888376345727224 -0.44896098016454816 A 0.020000000000000004 0.020000000000000004 0 0 1 0.7573205338396489 -0.46740022349811894 A 0.1 0.1 0 1 0 0.636073030038653 -0.38067499623263584 A 0.020000000000000004 0.020000000000000004 0 0 1 0.6433406300115272 -0.34489070744596845 L 0.43217826458424946 -0.1938516876105167 L -0.43817072552501357 -0.49098476656751766 L -0.307500710263919 -0.6051777961142522 L 0.13465762512764565 -0.7711555138661175 A 0.020000000000000004 0.020000000000000004 0 0 1 0.16032837934346758 -0.7451873465968589 A 0.1 0.1 0 1 0 0.299890615145083 -0.79757632024854 A 0.020000000000000004 0.020000000000000004 0 0 1 0.30213230808958413 -0.8340222822481347 L 0.7442906434811488 -1.0 L 1.0 -1.0' fill='yellow' stroke='black' stroke-width='0.015' />
 </g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 0.45570935651885025 1.0 L 0.16678494566032315 0.7624650271242553 A 0.020000000000000004 0.020000000000000004 0 0 1 0.17643866109731368 0.7272494182044178 A 0.1 0.1 0 1 0 0.06128736113595665 0.6325794634171052 A 0.020000000000000004 0.020000000000000004 0 0 1 0.028603385706694684 0.6488610813794803 L -0.2603210251518324 0.41132610850373563 L -0.4455038614441035 0.6365722742750536 A 0.020000000000000004 0.020000000000000004 0 0 1 -0.480719470363941 0.626918558838063 A 0.1 0.1 0 1 0 -0.5753894251512536 0.7420698587994201 A 0.020000000000000004 0.020000000000000004 0 0 1 -0.5591078071888785 0.774753834228682 L -0.7442906434811497 1.0 L 0.45570935651885025 1.0' fill='orange' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M -1.0 0.6 L -0.8110888060100889 0.1840268991739572 A 0.020000000000000004 0.020000000000000004 0 0 1 -0.7745745744548287 0.18423720196085563 A 0.1 0.1 0 1 0 -0.7129337696504574 0.048507200099470446 A 0.020000000000000004 0.020000000000000004 0 0 1 -0.7371198402448433 0.02115089694029494 L -0.5482086462549323 -0.39482220388574785 L -0.692666322010635 -0.4604266190602512 A 0.020000000000000004 0.020000000000000004 0 0 1 -0.6924560192237366 -0.49694085061551135 A 0.1 0.1 0 1 0 -0.8281860210851217 -0.5585816554198826 A 0.020000000000000004 0.020000000000000004 0 0 1 -0.8555423242442972 -0.5343955848254967 L -1.0 -0.6 L -1.0 0.6' fill='red' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M -0.45570935651885114 -1.0 L -0.4130384175823936 -0.8863262395380953 A 0.020000000000000004 0.020000000000000004 0 0 1 -0.4390065848516522 -0.8606554853222733 A 0.1 0.1 0 1 0 -0.38661761119997134 -0.721093249520658 A 0.020000000000000004 0.020000000000000004 0 0 1 -0.3501716492003765 -0.7188515565761568 L -0.307500710263919 -0.6051777961142522 L 0.13465762512764565 -0.7711555138661175 A 0.020000000000000004 0.020000000000000004 0 0 1 0.16032837934346758 -0.7451873465968589 A 0.1 0.1 0 1 0 0.299890615145083 -0.79757632024854 A 0.020000000000000004 0.020000000000000004 0 0 1 0.30213230808958413 -0.8340222822481347 L 0.7442906434811488 -1.0 L -0.45570935651885114 -1.0' fill='purple' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 1.0 -0.6 L 0.7888376345727224 -0.44896098016454816 A 0.020000000000000004 0.020000000000000004 0 0 1 0.7573205338396489 -0.46740022349811894 A 0.1 0.1 0 1 0 0.636073030038653 -0.38067499623263584 A 0.020000000000000004 0.020000000000000004 0 0 1 0.6433406300115272 -0.34489070744596845 L 0.43217826458424946 -0.1938516876105167 L 0.6640539959328349 0.13032565391414405 A 0.020000000000000004 0.020000000000000004 0 0 1 0.6456147525992642 0.16184275464721748 A 0.1 0.1 0 1 0 0.7323399798647473 0.2830902584482135 A 0.020000000000000004 0.020000000000000004 0 0 1 0.7681242686514147 0.27582265847533927 L 1.0 0.6 L 1.0 -0.6' fill='gray' stroke='black' stroke-width='0.015' />
+</g></g>
 </g></g></g>
-<g transform='translate(-1.5,-1.0)'>
+<g transform='translate(0.5,2.5)'>
 <g transform='rotate(0)'>
 <g transform='scale(1,1)'>
-<text font-family="monospace" x="1.000000" y="-1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">A</text>
-<text font-family="monospace" x="1.000000" y="1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">B</text>
-<text font-family="monospace" x="-1.000000" y="1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">C</text>
-<text font-family="monospace" x="-1.000000" y="-1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">D</text>
-<text font-family="monospace" x="1.000000" y="0.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">P</text>
-<text font-family="monospace" x="-0.144291" y="1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">Q</text>
-<text font-family="monospace" x="-0.438171" y="-0.490985" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">R</text>
-<text font-family="monospace" x="-1.000000" y="0.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">T</text>
-<text font-family="monospace" x="0.144291" y="-1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">S</text>
-<text font-family="monospace" x="0.455709" y="1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">QB</text>
-<text font-family="monospace" x="-0.260321" y="0.411326" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">QR</text>
-<text font-family="monospace" x="-0.744291" y="1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">QC</text>
-<text font-family="monospace" x="-1.000000" y="0.600000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">TC</text>
-<text font-family="monospace" x="-0.548209" y="-0.394822" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">TR</text>
-<text font-family="monospace" x="-1.000000" y="-0.600000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">TD</text>
-<text font-family="monospace" x="-0.455709" y="-1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">SD</text>
-<text font-family="monospace" x="-0.307501" y="-0.605178" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">SR</text>
-<text font-family="monospace" x="0.744291" y="-1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">SA</text>
-<text font-family="monospace" x="1.000000" y="-0.600000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">PA</text>
-<text font-family="monospace" x="0.432178" y="-0.193852" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">PR</text>
-<text font-family="monospace" x="1.000000" y="0.600000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">PB</text>
-<text font-family="monospace" x="1.000000" y="-1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">A</text>
-<text font-family="monospace" x="1.000000" y="1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">B</text>
-<text font-family="monospace" x="-1.000000" y="1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">C</text>
-<text font-family="monospace" x="-1.000000" y="-1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">D</text>
-<text font-family="monospace" x="1.000000" y="0.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">P</text>
-<text font-family="monospace" x="-0.144291" y="1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">Q</text>
-<text font-family="monospace" x="-0.438171" y="-0.490985" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">R</text>
-<text font-family="monospace" x="-1.000000" y="0.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">T</text>
-<text font-family="monospace" x="0.144291" y="-1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">S</text>
-<text font-family="monospace" x="0.455709" y="1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">QB</text>
-<text font-family="monospace" x="-0.260321" y="0.411326" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">QR</text>
-<text font-family="monospace" x="-0.744291" y="1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">QC</text>
-<text font-family="monospace" x="-1.000000" y="0.600000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">TC</text>
-<text font-family="monospace" x="-0.548209" y="-0.394822" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">TR</text>
-<text font-family="monospace" x="-1.000000" y="-0.600000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">TD</text>
-<text font-family="monospace" x="-0.455709" y="-1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">SD</text>
-<text font-family="monospace" x="-0.307501" y="-0.605178" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">SR</text>
-<text font-family="monospace" x="0.744291" y="-1.000000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">SA</text>
-<text font-family="monospace" x="1.000000" y="-0.600000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">PA</text>
-<text font-family="monospace" x="0.432178" y="-0.193852" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">PR</text>
-<text font-family="monospace" x="1.000000" y="0.600000" text-anchor="middle" dominant-baseline="hanging" font-size="0.200000">PB</text>
-</g></g></g>
-<g transform='translate(0.5,0.0)'>
+<g transform='translate(0,0)'>
 <g transform='rotate(0)'>
-<g transform='scale(1,1)'>
-<g transform='translate(1,0)'>
-<g transform='rotate(180)'>
-<g transform='scale(1,1)'>
-<g transform='translate(-1,0)'>
+<path d='M 1.0 -1.0 L 1.0 -0.6 L 1.2318757313485853 -0.27582265847533927 A 0.020000000000000004 0.020000000000000004 0 0 0 1.2676600201352528 -0.2830902584482135 A 0.1 0.1 0 1 1 1.3543852474007358 -0.16184275464721748 A 0.020000000000000004 0.020000000000000004 0 0 0 1.3359460040671651 -0.13032565391414405 L 1.5678217354157504 0.1938516876105167 L 2.438170725525014 0.49098476656751766 L 2.2603210251518324 -0.41132610850373563 L 1.9713966142933053 -0.6488610813794803 A 0.020000000000000004 0.020000000000000004 0 0 0 1.9387126388640432 -0.6325794634171052 A 0.1 0.1 0 1 1 1.8235613389026863 -0.7272494182044178 A 0.020000000000000004 0.020000000000000004 0 0 0 1.833215054339677 -0.7624650271242553 L 1.5442906434811499 -1.0 L 1.0 -1.0' fill='pink' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
 <g transform='rotate(0)'>
-<g transform='scale(1,1)'>
+<path d='M 1.2885812869622995 -1.0 L 1.2885812869622995 -1.4 L 1.4774924809522108 -1.8159731008260427 A 0.020000000000000004 0.020000000000000004 0 0 0 1.4533064103578248 -1.8433294039852182 A 0.1 0.1 0 1 1 1.5149472151621959 -1.9790594058466033 A 0.020000000000000004 0.020000000000000004 0 0 0 1.5514614467174561 -1.978849103059705 L 1.7403726407073672 -2.394822203885748 L 1.8504105614372859 -2.4909847665675175 L 2.028260261810467 -1.5886738914962644 L 1.843077425518196 -1.3634277257249465 A 0.020000000000000004 0.020000000000000004 0 0 0 1.8593590434805711 -1.3307437502956845 A 0.1 0.1 0 1 1 1.7646890886932585 -1.2155924503343272 A 0.020000000000000004 0.020000000000000004 0 0 0 1.7294734797734208 -1.2252461657713178 L 1.5442906434811499 -1.0 L 1.2885812869622995 -1.0' fill='lightblue' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 1.2885812869622977 -1.0 L 1.2885812869622977 -1.4 L 1.144123611206595 -1.4656044151745033 A 0.020000000000000004 0.020000000000000004 0 0 0 1.1167673080474194 -1.4414183445801174 A 0.1 0.1 0 1 1 0.9810373061860341 -1.5030591493844885 A 0.020000000000000004 0.020000000000000004 0 0 0 0.9812476089729326 -1.5395733809397487 L 0.8367899332172299 -1.6051777961142522 L 0.5960819972262166 -1.3948222038857478 L 0.638752936162674 -1.2811484434238432 A 0.020000000000000004 0.020000000000000004 0 0 0 0.6751988981622687 -1.2789067504793419 A 0.1 0.1 0 1 1 0.7275878718139498 -1.1393445146777266 A 0.020000000000000004 0.020000000000000004 0 0 0 0.7016197045446912 -1.1136737604619047 L 0.7442906434811487 -1.0 L 1.2885812869622977 -1.0' fill='lightgreen' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 1.0 -1.0 L 0.7442906434811488 -1.0 L 0.30213230808958413 -0.8340222822481347 A 0.020000000000000004 0.020000000000000004 0 0 0 0.299890615145083 -0.79757632024854 A 0.1 0.1 0 1 1 0.16032837934346758 -0.7451873465968589 A 0.020000000000000004 0.020000000000000004 0 0 0 0.13465762512764565 -0.7711555138661175 L -0.307500710263919 -0.6051777961142522 L -0.43817072552501357 -0.49098476656751766 L 0.43217826458424946 -0.1938516876105167 L 0.6433406300115272 -0.34489070744596845 A 0.020000000000000004 0.020000000000000004 0 0 0 0.636073030038653 -0.38067499623263584 A 0.1 0.1 0 1 1 0.7573205338396489 -0.46740022349811894 A 0.020000000000000004 0.020000000000000004 0 0 0 0.7888376345727224 -0.44896098016454816 L 1.0 -0.6 L 1.0 -1.0' fill='yellow' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 1.5442906434811499 -1.0 L 1.7294734797734208 -1.2252461657713178 A 0.020000000000000004 0.020000000000000004 0 0 0 1.7131918618110458 -1.2579301412005799 A 0.1 0.1 0 1 1 1.8078618165983584 -1.3730814411619372 A 0.020000000000000004 0.020000000000000004 0 0 0 1.843077425518196 -1.3634277257249465 L 2.028260261810467 -1.5886738914962644 L 2.2603210251518324 -0.41132610850373563 L 1.9713966142933053 -0.6488610813794803 A 0.020000000000000004 0.020000000000000004 0 0 0 1.9387126388640432 -0.6325794634171052 A 0.1 0.1 0 1 1 1.8235613389026863 -0.7272494182044178 A 0.020000000000000004 0.020000000000000004 0 0 0 1.833215054339677 -0.7624650271242553 L 1.5442906434811499 -1.0' fill='orange' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 1.7403726407073672 -2.394822203885748 L 1.5514614467174561 -1.978849103059705 A 0.020000000000000004 0.020000000000000004 0 0 0 1.575647517311842 -1.9514927999005296 A 0.1 0.1 0 1 1 1.514006712507471 -1.8157627980391444 A 0.020000000000000004 0.020000000000000004 0 0 0 1.4774924809522108 -1.8159731008260427 L 1.2885812869622995 -1.4 L 1.1441236112065958 -1.4656044151745033 A 0.020000000000000004 0.020000000000000004 0 0 0 1.1167673080474203 -1.4414183445801174 A 0.1 0.1 0 1 1 0.9810373061860349 -1.5030591493844885 A 0.020000000000000004 0.020000000000000004 0 0 0 0.9812476089729334 -1.5395733809397487 L 0.8367899332172299 -1.6051777961142522 L 1.7403726407073672 -2.394822203885748' fill='red' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 0.7442906434811488 -1.0 L 0.30213230808958413 -0.8340222822481347 A 0.020000000000000004 0.020000000000000004 0 0 0 0.299890615145083 -0.79757632024854 A 0.1 0.1 0 1 1 0.16032837934346758 -0.7451873465968589 A 0.020000000000000004 0.020000000000000004 0 0 0 0.13465762512764565 -0.7711555138661175 L -0.307500710263919 -0.6051777961142522 L 0.5960819972262166 -1.3948222038857478 L 0.638752936162674 -1.2811484434238432 A 0.020000000000000004 0.020000000000000004 0 0 0 0.6751988981622687 -1.2789067504793419 A 0.1 0.1 0 1 1 0.7275878718139498 -1.1393445146777266 A 0.020000000000000004 0.020000000000000004 0 0 0 0.7016197045446912 -1.1136737604619047 L 0.7442906434811488 -1.0' fill='purple' stroke='black' stroke-width='0.015' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 1.0 -0.6 L 1.2318757313485853 -0.27582265847533927 A 0.020000000000000004 0.020000000000000004 0 0 0 1.2676600201352528 -0.2830902584482135 A 0.1 0.1 0 1 1 1.3543852474007358 -0.16184275464721748 A 0.020000000000000004 0.020000000000000004 0 0 0 1.3359460040671651 -0.13032565391414405 L 1.5678217354157504 0.1938516876105167 L 0.43217826458424946 -0.1938516876105167 L 0.6433406300115272 -0.34489070744596845 A 0.020000000000000004 0.020000000000000004 0 0 0 0.636073030038653 -0.38067499623263584 A 0.1 0.1 0 1 1 0.7573205338396489 -0.46740022349811894 A 0.020000000000000004 0.020000000000000004 0 0 0 0.7888376345727224 -0.44896098016454816 L 1.0 -0.6' fill='gray' stroke='black' stroke-width='0.015' />
+</g></g>
 </g></g></g>
-</g></g></g>
-<g transform='translate(0.1442906434811488,-1.0)'>
-<g transform='rotate(180)'>
-<g transform='scale(1,1)'>
-<g transform='translate(-0.1442906434811488,1.0)'>
+<g transform='translate(-1.5,-1.25)'>
 <g transform='rotate(0)'>
 <g transform='scale(1,1)'>
 </g></g></g>
-</g></g></g>
-<g transform='translate(1,0)'>
-<g transform='rotate(180)'>
-<g transform='scale(1,1)'>
-<g transform='translate(-1,0)'>
-<g transform='rotate(0)'>
-<g transform='scale(1,1)'>
-<g transform='translate(-0.14429064348114973,1.0)'>
-<g transform='rotate(180)'>
-<g transform='scale(1,1)'>
-<g transform='translate(0.14429064348114973,-1.0)'>
+<g transform='translate(0.5,-0.5)'>
 <g transform='rotate(0)'>
 <g transform='scale(1,1)'>
 </g></g></g>
+<g transform='translate(-1.5,1.7)'>
+<g transform='rotate(0)'>
+<g transform='scale(1,1)'>
 </g></g></g>
-</g></g></g>
-</g></g></g>
-</g></g></g>
-<g transform='translate(-1.5,1.5)'>
+<g transform='translate(0.5,2.5)'>
 <g transform='rotate(0)'>
 <g transform='scale(1,1)'>
 </g></g></g></g></g></g></svg>

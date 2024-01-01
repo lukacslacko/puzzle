@@ -169,7 +169,6 @@ class SVG:
                     or isinstance(value, int)
                     or isinstance(value, float)
                 ) and name.isupper():
-                    print(name)
                     self.mark(value, name, "bc")
 
     def transformation(
