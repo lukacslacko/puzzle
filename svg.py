@@ -1,16 +1,25 @@
 import cmath
+import jigsaw
 
 COLORS = ["pink", "lightblue", "lightgreen", "yellow", "orange", "red", "purple"]
+
 
 class Path:
     def __init__(self):
         self.path = []
+        self.current = None
+
+    def __init__(self, start: complex):
+        self.path = ["M", start.real, start.imag]
+        self.current = start
 
     def move(self, start: complex):
         self.path += ["M", start.real, start.imag]
+        self.current = start
 
     def line(self, end: complex):
         self.path += ["L", end.real, end.imag]
+        self.current = end
 
     def arc(
         self, radius: float, end: complex, large_arc: bool = False, sweep: bool = True
@@ -25,6 +34,11 @@ class Path:
             end.real,
             end.imag,
         ]
+        self.current = end
+
+    def linear_tab(self, end: complex, radius: float, left: bool):
+        jigsaw.linear_tab(self.current, end, radius, self, left=left)
+        self.current = end
 
     def __str__(self):
         return " ".join(map(str, self.path))
@@ -32,16 +46,21 @@ class Path:
 
 class SVGTransformation:
     def __init__(self, svg: "SVG", shift: complex = 0, rotate: float = 0):
-        svg.svg.append(f"<g transform='translate({shift.real},{shift.imag})'>")
-        svg.svg.append(f"<g transform='rotate({rotate})'>")
+        transformations_elements = [
+            f"<g transform='translate({shift.real},{shift.imag})'>",
+            f"<g transform='rotate({rotate})'>",
+        ]
+        for element in transformations_elements:
+            svg.svg.append(element)
+            svg.marks.append(element)
         self.svg = svg
-    
+
     def __enter__(self):
         return self
-    
+
     def __exit__(self, type, value, traceback):
         self.svg.svg.append("</g></g>")
-
+        self.svg.marks.append("</g></g>")
 
 class SVG:
     def __init__(
@@ -72,7 +91,15 @@ class SVG:
             '<g transform="translate(%f,%f)">' % (-center.real, -center.imag)
         )
 
-    def draw_path(self, path: str, fill: str, stroke: str = "black", stroke_width: float = 0.015, shift: complex = 0, rotate: float = 0):
+    def draw_path(
+        self,
+        path: str,
+        fill: str,
+        stroke: str = "black",
+        stroke_width: float = 0.015,
+        shift: complex = 0,
+        rotate: float = 0,
+    ):
         self.svg.append(f"<g transform='translate({shift.real},{shift.imag})'>")
         self.svg.append(f"<g transform='rotate({rotate})'>")
         self.svg.append(

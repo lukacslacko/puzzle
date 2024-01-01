@@ -1,7 +1,6 @@
 import cmath
 
-from svg import Path
-
+Path = "svg.Path"
 
 def line_intersection(
     start1: complex, end1: complex, start2: complex, end2: complex
