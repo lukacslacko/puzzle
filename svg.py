@@ -91,7 +91,10 @@ class SVG:
         self.size = size
         self.width = width
         self.height = height
-        self.filename = filename
+        if filename.endswith("py"):
+            self.filename = filename[:-2] + "svg"
+        else:
+            self.filename = filename
         self.svg = []
         self.marks = []
         self.svg.append('<?xml version="1.0" encoding="UTF-8" standalone="no"?>')
