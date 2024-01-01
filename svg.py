@@ -30,6 +30,19 @@ class Path:
         return " ".join(map(str, self.path))
 
 
+class SVGTransformation:
+    def __init__(self, svg: "SVG", shift: complex = 0, rotate: float = 0):
+        svg.svg.append(f"<g transform='translate({shift.real},{shift.imag})'>")
+        svg.svg.append(f"<g transform='rotate({rotate})'>")
+        self.svg = svg
+    
+    def __enter__(self):
+        return self
+    
+    def __exit__(self, type, value, traceback):
+        self.svg.svg.append("</g></g>")
+
+
 class SVG:
     def __init__(
         self, center: complex, size: float, width: int, height: int, filename: str
@@ -75,6 +88,9 @@ class SVG:
             '<text font-family="monospace" x="%f" y="%f" text-anchor="%s" dominant-baseline="%s" font-size="%f">%s</text>'
             % (point.real, point.imag, anchor, baseline, font_size, name)
         )
+
+    def transformation(self, shift: complex = 0, rotate: float = 0):
+        return SVGTransformation(self, shift, rotate)
 
     def __str__(self):
         return "\n".join(self.svg) + "\n" + "\n".join(self.marks) + "</g></g></g></svg>"
