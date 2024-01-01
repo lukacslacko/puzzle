@@ -1,10 +1,22 @@
 import cmath
 import jigsaw
 
-COLORS = ["pink", "lightblue", "lightgreen", "yellow", "orange", "red", "purple", "gray"]
+COLORS = [
+    "pink",
+    "lightblue",
+    "lightgreen",
+    "yellow",
+    "orange",
+    "red",
+    "purple",
+    "gray",
+]
 
 
 class Path:
+    default_linear_tab_radius = 0.15
+    default_linear_tab_left = True
+
     def __init__(self):
         self.path = []
         self.current = None
@@ -16,10 +28,12 @@ class Path:
     def move(self, start: complex):
         self.path += ["M", start.real, start.imag]
         self.current = start
+        return self
 
     def line(self, end: complex):
         self.path += ["L", end.real, end.imag]
         self.current = end
+        return self
 
     def arc(
         self, radius: float, end: complex, large_arc: bool = False, sweep: bool = True
@@ -36,9 +50,12 @@ class Path:
         ]
         self.current = end
 
-    def linear_tab(self, end: complex, radius: float, left: bool):
+    def linear_tab(self, end: complex, radius: float = None, left: bool = None):
+        radius = radius if radius is not None else self.default_linear_tab_radius
+        left = left if left is not None else self.default_linear_tab_left
         jigsaw.linear_tab(self.current, end, radius, self, left=left)
         self.current = end
+        return self
 
     def circular_tab(
         self,
@@ -59,17 +76,20 @@ class Path:
             path=self,
         )
         self.current = end
+        return self
 
     def __str__(self):
         return " ".join(map(str, self.path))
 
 
 class SVGTransformation:
-    def __init__(self, svg: "SVG", shift: complex = 0, rotate: float = 0, mirror: bool = False):
+    def __init__(
+        self, svg: "SVG", shift: complex = 0, rotate: float = 0, mirror: bool = False
+    ):
         transformations_elements = [
             f"<g transform='translate({shift.real},{shift.imag})'>",
             f"<g transform='rotate({rotate})'>",
-            f"<g transform='scale({-1 if mirror else 1},1)'>"
+            f"<g transform='scale({-1 if mirror else 1},1)'>",
         ]
         for element in transformations_elements:
             svg.svg.append(element)
@@ -141,7 +161,20 @@ class SVG:
             % (point.real, point.imag, anchor, baseline, font_size, name)
         )
 
-    def transformation(self, shift: complex = 0, rotate: float = 0, mirror: bool = False):
+    def mark_all_caps(self, named_points_dicts: list[dict]) -> None:
+        for named_points_dict in named_points_dicts:
+            for name, value in named_points_dict.items():
+                if (
+                    isinstance(value, complex)
+                    or isinstance(value, int)
+                    or isinstance(value, float)
+                ) and name.isupper():
+                    print(name)
+                    self.mark(value, name, "bc")
+
+    def transformation(
+        self, shift: complex = 0, rotate: float = 0, mirror: bool = False
+    ):
         return SVGTransformation(self, shift, rotate, mirror)
 
     def __str__(self):
