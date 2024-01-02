@@ -17,8 +17,8 @@ BB = 3*B
 CC = 3*C
 DD = 3*D
 
-with svg.SVG(0, 3, 700, 300, __file__) as s:
-    with s.transformation(shift=-4.5, rotate=0):
+with svg.SVG(0, 2, 700, 300, __file__) as s:
+    with s.transformation(shift=-2.5, rotate=0):
         path = svg.Path(AA)
         path.line(A)
         path.circular_tab(0, B, B, 0.15, inwards=False)
