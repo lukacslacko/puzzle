@@ -1,4 +1,5 @@
 import cmath
+import numpy
 
 Path = "svg.Path"
 
@@ -21,6 +22,13 @@ def line_intersection(
 def along(start: complex, end: complex, distance: float) -> complex:
     return start + (end - start) * distance / abs(end - start)
 
+def area(a, b, c):
+    return (
+        numpy.linalg.det(
+            numpy.array([[a.real, a.imag, 1], [b.real, b.imag, 1], [c.real, c.imag, 1]])
+        )
+        / 2
+    )
 
 def linear_tab(
     start: complex, end: complex, radius: float, path: Path, *, left: bool
