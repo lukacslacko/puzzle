@@ -106,3 +106,7 @@ I've used OpenSCAD to print the pieces for these dissections, with a small offse
 I've used complex numbers to produce the dissections, since they very naturally lend them to such a task and Python has built in support for them, allowing very compact writing of planar locations, rotations, scaling and translation.
 
 I've written a very narrow SVG library to render these, and to render the names of points, to help during the production of the dissection.
+
+## Questions, comments
+
+If you like these, have any ideas or are curious about some other puzzles I've made, either look in the `old` directory or contact me at lukacslacko@gmail.com.
