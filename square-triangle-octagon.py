@@ -220,7 +220,7 @@ real_tri_pieces = [
 
 with svg.SVG(0, 3.5, 700, 700, __file__) as s:
     with s.transformation(shift=-1.5 - 1j):
-        s.mark_all_caps([globals(), locals()])
+        s.mark_all_caps([globals(), locals()], size=0.1)
         for i, piece in enumerate(pieces):
             s.draw_path(piece, svg.COLORS[i])
 
