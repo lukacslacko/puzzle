@@ -10,7 +10,7 @@ C = -1
 D = -B
 
 
-with svg.SVG(0, 5, 700, 700, "a.svg") as s:
+with svg.SVG(0, 5, 700, 700, __file__) as s:
     for y, left in [(1j, True), (-2.5j, False)]:
         with s.transformation(shift=-2.2+y, rotate=0):
             path = svg.Path(2*A)

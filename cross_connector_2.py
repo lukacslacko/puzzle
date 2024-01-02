@@ -17,7 +17,7 @@ BB = 3*B
 CC = 3*C
 DD = 3*D
 
-with svg.SVG(0, 3, 700, 300, "a.svg") as s:
+with svg.SVG(0, 3, 700, 300, __file__) as s:
     with s.transformation(shift=-4.5, rotate=0):
         path = svg.Path(AA)
         path.line(A)
