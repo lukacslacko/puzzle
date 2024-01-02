@@ -5,9 +5,8 @@ import jigsaw
 
 eps = cmath.exp(cmath.pi * 2j / 5)
 
-with SVG(0, 1.2, 500, 500, "a.svg") as s:
-    path = Path()
-    path.move(1)
+with SVG(0, 1.2, 500, 500, __file__) as s:
+    path = Path(1)
     s.mark(1, "A", "bc")
     path.line(0.5)
     s.mark(0, "O", "mc")
