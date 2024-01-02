@@ -1,49 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="700" height="700">
-<g transform="translate(350,350) scale(350)">
-<g transform="translate(0.000000,0.000000) scale(0.333333)">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="700" height="300">
+<g transform="translate(350,150) scale(150)">
+<g transform="translate(0.000000,0.000000) scale(0.606061)">
 <g transform="translate(0.000000,0.000000)">
-<g transform='translate(-1.5,-1.25)'>
-<g transform='rotate(0)'>
-<g transform='scale(1,1)'>
-<g transform='translate(0,0)'>
-<g transform='rotate(0)'>
-<path d='M 1.0 1.0 L -0.14429064348114973 1.0 L -0.43817072552501357 -0.49098476656751766 L 1 0 L 1.0 1.0' fill='pink' stroke='black' stroke-width='0.015' />
-</g></g>
-<g transform='translate(0,0)'>
-<g transform='rotate(0)'>
-<path d='M -1.0 1.0 L -1 0 L -0.43817072552501357 -0.49098476656751766 L -0.14429064348114973 1.0 L -1.0 1.0' fill='lightblue' stroke='black' stroke-width='0.015' />
-</g></g>
-<g transform='translate(0,0)'>
-<g transform='rotate(0)'>
-<path d='M -1.0 -1.0 L 0.1442906434811488 -1.0 L -1 0 L -1.0 -1.0' fill='lightgreen' stroke='black' stroke-width='0.015' />
-</g></g>
-<g transform='translate(0,0)'>
-<g transform='rotate(0)'>
-<path d='M 1.0 -1.0 L 1 0 L -0.43817072552501357 -0.49098476656751766 L 0.1442906434811488 -1.0 L 1.0 -1.0' fill='yellow' stroke='black' stroke-width='0.015' />
-</g></g>
-</g></g></g>
-<g transform='translate(0.5,-0.5)'>
-<g transform='rotate(0)'>
-<g transform='scale(1,1)'>
-<g transform='translate(0,0)'>
-<g transform='rotate(0)'>
-<path d='M 1.0 -1.0 L 2.14429064348115 -1.0 L 2.438170725525014 0.49098476656751766 L 1 0 L 1.0 -1.0' fill='pink' stroke='black' stroke-width='0.015' />
-</g></g>
-<g transform='translate(0,0)'>
-<g transform='rotate(0)'>
-<path d='M 2.14429064348115 -1.0 L 1.8504105614372859 -2.4909847665675175 L 1.2885812869622995 -2.0 L 1.2885812869622995 -1.0 L 2.14429064348115 -1.0' fill='lightblue' stroke='black' stroke-width='0.015' />
-</g></g>
-<g transform='translate(0,0)'>
-<g transform='rotate(0)'>
-<path d='M 0.1442906434811488 -1.0 L 1.2885812869622977 -2.0 L 1.2885812869622977 -1.0 L 0.1442906434811488 -1.0' fill='lightgreen' stroke='black' stroke-width='0.015' />
-</g></g>
-<g transform='translate(0,0)'>
-<g transform='rotate(0)'>
-<path d='M 1.0 -1.0 L 1 0 L -0.43817072552501357 -0.49098476656751766 L 0.1442906434811488 -1.0 L 1.0 -1.0' fill='yellow' stroke='black' stroke-width='0.015' />
-</g></g>
-</g></g></g>
-<g transform='translate(-1.5,1.7)'>
+<g transform='translate(-1.5,0.0)'>
 <g transform='rotate(0)'>
 <g transform='scale(1,1)'>
 <g transform='translate(0,0)'>
@@ -79,7 +39,7 @@
 <path d='M 1.0 -0.6 L 0.7888376345727224 -0.44896098016454816 A 0.020000000000000004 0.020000000000000004 0 0 1 0.7573205338396489 -0.46740022349811894 A 0.1 0.1 0 1 0 0.636073030038653 -0.38067499623263584 A 0.020000000000000004 0.020000000000000004 0 0 1 0.6433406300115272 -0.34489070744596845 L 0.43217826458424946 -0.1938516876105167 L 0.6640539959328349 0.13032565391414405 A 0.020000000000000004 0.020000000000000004 0 0 1 0.6456147525992642 0.16184275464721748 A 0.1 0.1 0 1 0 0.7323399798647473 0.2830902584482135 A 0.020000000000000004 0.020000000000000004 0 0 1 0.7681242686514147 0.27582265847533927 L 1.0 0.6 L 1.0 -0.6' fill='gray' stroke='black' stroke-width='0.015' />
 </g></g>
 </g></g></g>
-<g transform='translate(0.5,2.5)'>
+<g transform='translate(0.5,1.0)'>
 <g transform='rotate(0)'>
 <g transform='scale(1,1)'>
 <g transform='translate(0,0)'>
@@ -115,19 +75,11 @@
 <path d='M 1.0 -0.6 L 1.2318757313485853 -0.27582265847533927 A 0.020000000000000004 0.020000000000000004 0 0 0 1.2676600201352528 -0.2830902584482135 A 0.1 0.1 0 1 1 1.3543852474007358 -0.16184275464721748 A 0.020000000000000004 0.020000000000000004 0 0 0 1.3359460040671651 -0.13032565391414405 L 1.5678217354157504 0.1938516876105167 L 0.43217826458424946 -0.1938516876105167 L 0.6433406300115272 -0.34489070744596845 A 0.020000000000000004 0.020000000000000004 0 0 0 0.636073030038653 -0.38067499623263584 A 0.1 0.1 0 1 1 0.7573205338396489 -0.46740022349811894 A 0.020000000000000004 0.020000000000000004 0 0 0 0.7888376345727224 -0.44896098016454816 L 1.0 -0.6' fill='gray' stroke='black' stroke-width='0.015' />
 </g></g>
 </g></g></g>
-<g transform='translate(-1.5,-1.25)'>
+<g transform='translate(-1.5,0.0)'>
 <g transform='rotate(0)'>
 <g transform='scale(1,1)'>
 </g></g></g>
-<g transform='translate(0.5,-0.5)'>
-<g transform='rotate(0)'>
-<g transform='scale(1,1)'>
-</g></g></g>
-<g transform='translate(-1.5,1.7)'>
-<g transform='rotate(0)'>
-<g transform='scale(1,1)'>
-</g></g></g>
-<g transform='translate(0.5,2.5)'>
+<g transform='translate(0.5,1.0)'>
 <g transform='rotate(0)'>
 <g transform='scale(1,1)'>
 </g></g></g></g></g></g></svg>

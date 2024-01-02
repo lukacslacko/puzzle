@@ -6,7 +6,7 @@
 > Read the dissections books of Greg N. Frederickson! All of them! They are amazing!
 
 ![Square to triangle](square-triangle.svg)
-![Two squares to one](two=squares-a.svg)
+![Two squares to one](two-squares-a.svg)
 
 Motivated by the books of Frederickson I wanted to produce polygon dissections physically, especially hinged ones, as they looked particularly neat. However 3D printing a good hinge mechanism is not easy. Chapter 22 of "Hinged Dissections: Swinging & Twisting" describes how to turn hinges into twist hinges which rotate 180 degrees, which seemed easier to produce. Then I thought that a symmetric jigsaw connection corresponds to a twist hinge, thus replacing twist hinges with jigsaw connections produces dissections which look nice and remain stuck together.
 
@@ -37,6 +37,8 @@ Snug hinges (defined in Chapter 2 of Frederickson's "Hinged Dissections: Swingin
 
 Hinge connectors can be of any symmetrical shape, they don't need to be linear or circular, nor do the jigsaw connection need to be circular, as long as they are symmetrical. For simplicity though and nice looks, I prefer these shapes.
 
+One advantage of jigsaw dissections is that often hinged dissections could go "all the way around", but for physical realization one hinge needs to be removed, which, then, after completely hinging the dissections around, meets up again. With jigsaw dissections, such hinged dissections could be fully "jigsawed", which makes the resulting product stable, rather than wanting to become unhinged and swing between the two end states, as it happens with hinged dissections.
+
 Twist hinges, which are standalone 180 degree rotations along an axis perpendicular to the common edge of the two pieces, directly correspond to a jigsaw connection:
 
 ![Flip connector](flip_connector.svg)
@@ -55,11 +57,12 @@ These dissections are based on the ideas from the Frederickson books. Buy them a
 
 ### Two equal squares to one
 
-![Two equal squares to one](two-squares-a)
+![Two equal squares to one](two-squares-a.svg)
 
 ### Square to regular triangle
 
 ![Square to triangle](square-triangle.svg)
+![Square to triangle](square-triangle-b.svg)
 
 ### Square to regular octagon
 

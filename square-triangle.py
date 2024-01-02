@@ -97,24 +97,25 @@ tri_hinges = [
     svg.Path(PA).linear_tab(2 * P - PR).line(PR).linear_tab(PA),
 ]
 
-with svg.SVG(0, 3, 700, 700, __file__) as s:
-    with s.transformation(shift=-1.5 - 1.25j, rotate=0):
+with svg.SVG(0, 1.65, 700, 300, __file__, "-b") as s:
+    with s.transformation(shift=-1.5, rotate=0):
         for i, piece in enumerate(pieces):
             s.draw_path(piece, svg.COLORS[i])
 
         # s.mark_all_caps([globals(), locals()])
 
-    with s.transformation(shift=0.5 - 0.5j, rotate=0):
+    with s.transformation(shift=0.5+1j, rotate=0):
         for i, piece in enumerate(tri_pieces):
             s.draw_path(piece, svg.COLORS[i])
 
-    with s.transformation(shift=-1.5 + 1.7j):
+with svg.SVG(0, 1.65, 700, 300, __file__) as s:
+    with s.transformation(shift=-1.5):
         for i, piece in enumerate(hinged_pieces):
             s.draw_path(piece, svg.COLORS[i])
         for i, hinge in enumerate(hinges):
             s.draw_path(hinge, svg.COLORS[i + 4])
 
-    with s.transformation(shift=0.5 + 2.5j):
+    with s.transformation(shift=0.5 + 1j):
         for i, piece in enumerate(tri_hinged_pieces):
             s.draw_path(piece, svg.COLORS[i])
         for i, hinge in enumerate(tri_hinges):
