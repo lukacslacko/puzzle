@@ -17,6 +17,7 @@ Things I care about:
     * In particular, the size of the smallest detail should be as large as possible.
     * Avoiding sharp angles, with which the circular (rather than linear) connector pieces help quite a bit, since they produce right angles where they meet the edges.
  * Symmetric look
+ * Solid, non-flimsy results
 
 Things I don't really care about:
  * Using few pieces for a dissection
@@ -48,7 +49,6 @@ Twist hinges, which are standalone 180 degree rotations along an axis perpendicu
 When one wishes to produce dissections among multiple polygons, one way to achieve that is to overlay multiple dissections. In such cases when external edges of two polygons intersect, one needs to insert a connector structure which holds the pieces together, with a flush outer edge, along either of the two intersecting polygon edges. This can be achieved like this:
 
 ![Cross connector](cross_connector.svg)
-
 ![Cross connector](cross_connector_2.svg)
 
 ## Examples
@@ -74,7 +74,7 @@ These dissections are based on the ideas from the Frederickson books. Buy them a
 
 ### Square to 8/3 star
 
-![Square to star](star-1.svg)
+![Square to star](star_1.svg)
 
 ### Square, regular triangle and regular octagon
 
