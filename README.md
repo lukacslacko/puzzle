@@ -17,6 +17,7 @@ Things I care about:
     * In particular, the size of the smallest detail should be as large as possible.
     * Avoiding sharp angles, with which the circular (rather than linear) connector pieces help quite a bit, since they produce right angles where they meet the edges.
  * Symmetric look
+ * Relatively easily putting together the puzzle. Using circular hinge connectors guide the puzzler in finding which piece fits where. Having some pieces have outwards tabs and some inwards tabs further help with this.
  * Solid, non-flimsy results
 
 Things I don't really care about:
@@ -72,17 +73,29 @@ These dissections are based on the ideas from the Frederickson books. Buy them a
 
 ![Square to cross](square-cross.svg)
 
+Note that hinge connector pieces don't need to have the same radius as long as each segment is symmetric.
+
 ### Square to 8/3 star
 
 ![Square to star](star_1.svg)
 
+Note that internal five pieces don't strictly need the hinge connectors, but to keep the puzzle nicer together (to have fewer pieces slide along each other) and to increase the symmetry and thus helping when physically putting the puzzle together, by guiding the puzzler showing which piece fits where, I've added them.
+
 ### Square, regular triangle and regular octagon
+
+Note that I've chosen a square-triangle dissection which is based on a Q-swing (see Chapter 3 of "Hinged Dissections"), in order to increase the size of the smallest piece and to keep the dissection more symmetric, at the cost of increasing piece count.
 
 ![Sqaure, triangle, octagon](square-triangle-octagon.svg)
 
 ![Square, triangle, octagon](square-triangle-octagon-b.svg)
 
 ![Square, triangle, octagon](square-triangle-octagon-c.svg)
+
+Note that without the small linear tabs between R - T_R and S - T_S (that is, when one would have simple lines between these points) one would get two halves of the regular triangle with completely flush edges, nothing to hold them together, so while they are breaking the complete symmetry of the dissection, they are needed to hold the triangle together.
+
+Note that at IX and its centrally symmetric partner we needed to add a cross connector structure, since IX is both on the outer edge of the triangle and the octagon, and without a connecting piece there, the polygons would slide apart.
+
+Also note that while the outer edges of the octagon and the triangle also intersect at points IY and IZ, but we don't actually need cross connector pieces there (which would end up being really tiny, IY being so close to W) because luckily the cross connector around IX and its symmetric partner hold everything together.
 
 ## Considerations for 3D printing
 
