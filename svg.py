@@ -90,12 +90,17 @@ class Path:
 
 class SVGTransformation:
     def __init__(
-        self, svg: "SVG", shift: complex = 0, rotate: float = 0, mirror: bool = False
+        self,
+        svg: "SVG",
+        shift: complex = 0,
+        rotate: float = 0,
+        mirror: bool = False,
+        scale: float = 1,
     ):
         transformations_elements = [
             f"<g transform='translate({shift.real},{shift.imag})'>",
             f"<g transform='rotate({rotate})'>",
-            f"<g transform='scale({-1 if mirror else 1},1)'>",
+            f"<g transform='scale({-scale if mirror else scale},{scale})'>",
         ]
         for element in transformations_elements:
             svg.svg.append(element)
@@ -184,9 +189,13 @@ class SVG:
                     self.mark(value, name, "bc", size)
 
     def transformation(
-        self, shift: complex = 0, rotate: float = 0, mirror: bool = False
+        self,
+        shift: complex = 0,
+        rotate: float = 0,
+        mirror: bool = False,
+        scale: float = 1,
     ):
-        return SVGTransformation(self, shift, rotate, mirror)
+        return SVGTransformation(self, shift, rotate, mirror, scale)
 
     def __str__(self):
         return "\n".join(self.svg) + "\n" + "\n".join(self.marks) + "</g></g></g></svg>"

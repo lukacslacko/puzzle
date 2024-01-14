@@ -30,16 +30,14 @@ H = along(A, B, abs(A - G))
 K = along(F, C, abs(A - G))
 Q = perpendicular_projection(F, D, K)
 
-r_G = 0.16
-rho_G = 0.05
-inwards_G = False
+r_G, rho_G, inwards_G = 0.15, 0.04, True
 
 r_B = 0.08
 rho_B = 0.02
 inwards_B = True
 
 r_F, rho_F, inwards_F = 0.15, 0.04, True
-r_D, rho_D, inwards_D = 0.1, 0.03, False
+r_D, rho_D, inwards_D = 0.15, 0.04, True
 
 EA = (E + A) / 2
 EAA = along(EA, A, r_G)
@@ -141,7 +139,7 @@ def piece_2():
         .semicircular_tab(CD1, rho_D, inwards_D)
         .line(CD2D)
         .semicircular_tab(CD2, rho_D, inwards_D)
-        .line(D)
+        .line(C)
     )
 
 
@@ -158,22 +156,41 @@ def piece_1():
     )
 
 
-with svg.SVG(0, 1.2, 700, 700, __file__) as s:
-    # s.mark_all_caps([globals(), locals()], size=0.1)
-    for path in [
-        svg.Path(A).line(B).line(C).line(D).line(E).line(A).line(C),
-        svg.Path(H).line(G),
-        svg.Path(F).line(D),
-        svg.Path(K).line(Q),
-        svg.Path(P).line(E),
-    ]:
-        s.draw_path(
-            path,
-            "transparent",
-            "black",
-            0.003,
-        )
-    for i, piece in enumerate(
-        [piece_3(), piece_5(), piece_4(), piece_2prime(), piece_2(), piece_1()]
-    ):
-        s.draw_path(piece, svg.COLORS[i], "black", 0.003)
+def draw_penta():
+    with svg.SVG(0, 1.2, 700, 700, __file__) as s:
+        # s.mark_all_caps([globals(), locals()], size=0.1)
+        for path in [
+            svg.Path(A).line(B).line(C).line(D).line(E).line(A).line(C),
+            svg.Path(H).line(G),
+            svg.Path(F).line(D),
+            svg.Path(K).line(Q),
+            svg.Path(P).line(E),
+        ]:
+            s.draw_path(
+                path,
+                "transparent",
+                "black",
+                0.003,
+            )
+        for i, piece in enumerate(
+            [piece_3(), piece_5(), piece_4(), piece_2prime(), piece_2(), piece_1()]
+        ):
+            s.draw_path(piece, svg.COLORS[i], "black", 0.003)
+
+
+def draw_render():
+    with svg.SVG(0, 100, 700, 700, __file__, "render") as s:
+        for piece, d in [
+            (piece_3(), EA * 0.1),
+            (piece_5(), (A + B) / 2 * 0.1),
+            (piece_4(), (B + C) / 2 * 0.1),
+            (piece_2prime(), 0),
+            (piece_2(), (C + D) / 2 * 0.1),
+            (piece_1(), (D + E) / 2 * 0.1),
+        ]:
+            with s.transformation(scale=100), s.transformation(shift=d):
+                s.draw_path(piece, "transparent", "black", 0.005)
+
+
+draw_penta()
+draw_render()
