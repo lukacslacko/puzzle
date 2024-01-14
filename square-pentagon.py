@@ -30,8 +30,136 @@ H = along(A, B, abs(A - G))
 K = along(F, C, abs(A - G))
 Q = perpendicular_projection(F, D, K)
 
+r_G = 0.16
+rho_G = 0.05
+inwards_G = False
+
+r_B = 0.08
+rho_B = 0.02
+inwards_B = True
+
+r_F, rho_F, inwards_F = 0.15, 0.04, True
+r_D, rho_D, inwards_D = 0.1, 0.03, False
+
+EA = (E + A) / 2
+EAA = along(EA, A, r_G)
+FA = (A + F) / 2
+FAF = along(FA, F, r_B)
+FAA = along(FA, A, r_B)
+
+AH = (A + H) / 2
+AHH = along(AH, H, r_F)
+HG = (H + G) / 2
+HGG = along(HG, G, r_D)
+HGH = along(HG, H, r_D)
+
+BC = (B + C) / 2
+BCC = along(BC, C, r_G)
+KC = (K + C) / 2
+KCK = along(KC, K, r_B)
+KCC = along(KC, C, r_B)
+
+FK = (F + K) / 2
+FKK = along(FK, K, r_F)
+
+CD1 = (C + 3 * D) / 4
+CD2 = (3 * C + D) / 4
+CD1D = along(CD1, D, r_D)
+CD2D = along(CD2, D, r_D)
+
+ED1 = along(E, D, abs(K - KC))
+ED1E = along(ED1, E, r_B)
+ED2 = along(D, E, abs(F - FA))
+ED2E = along(ED2, E, r_B)
+
+
+def piece_3():
+    return (
+        svg.Path(A)
+        .line(EAA)
+        .semicircular_tab(EA, rho_G, inwards_G)
+        .line(E)
+        .line(P)
+        .line(F)
+        .line(FAF)
+        .semicircular_tab(FA, rho_B, inwards_B)
+        .line(A)
+    )
+
+
+def piece_5():
+    return (
+        svg.Path(A)
+        .line(FAA)
+        .semicircular_tab(FA, rho_B, inwards_B)
+        .line(G)
+        .line(HGG)
+        .semicircular_tab(HG, rho_D, inwards_D)
+        .line(H)
+        .line(AHH)
+        .semicircular_tab(AH, rho_F, inwards_F)
+        .line(A)
+    )
+
+
+def piece_4():
+    return (
+        svg.Path(G)
+        .line(KCK)
+        .semicircular_tab(KC, rho_B, inwards_B)
+        .line(C)
+        .line(BCC)
+        .semicircular_tab(BC, rho_G, inwards_G)
+        .line(B)
+        .line(H)
+        .line(HGH)
+        .semicircular_tab(HG, rho_D, inwards_D)
+        .line(G)
+    )
+
+
+def piece_2prime():
+    return (
+        svg.Path(F)
+        .line(Q)
+        .line(K)
+        .line(FKK)
+        .semicircular_tab(FK, rho_F, inwards_F)
+        .line(F)
+    )
+
+
+def piece_2():
+    return (
+        svg.Path(C)
+        .line(KCC)
+        .semicircular_tab(KC, rho_B, inwards_B)
+        .line(K)
+        .line(Q)
+        .line(D)
+        .line(CD1D)
+        .semicircular_tab(CD1, rho_D, inwards_D)
+        .line(CD2D)
+        .semicircular_tab(CD2, rho_D, inwards_D)
+        .line(D)
+    )
+
+
+def piece_1():
+    return (
+        svg.Path(P)
+        .line(E)
+        .line(ED1E)
+        .semicircular_tab(ED1, rho_B, inwards_B)
+        .line(ED2E)
+        .semicircular_tab(ED2, rho_B, inwards_B)
+        .line(D)
+        .line(P)
+    )
+
+
 with svg.SVG(0, 1.2, 700, 700, __file__) as s:
-    s.mark_all_caps([globals(), locals()], size=0.1)
+    # s.mark_all_caps([globals(), locals()], size=0.1)
     for path in [
         svg.Path(A).line(B).line(C).line(D).line(E).line(A).line(C),
         svg.Path(H).line(G),
@@ -43,5 +171,9 @@ with svg.SVG(0, 1.2, 700, 700, __file__) as s:
             path,
             "transparent",
             "black",
-            0.01,
+            0.003,
         )
+    for i, piece in enumerate(
+        [piece_3(), piece_5(), piece_4(), piece_2prime(), piece_2(), piece_1()]
+    ):
+        s.draw_path(piece, svg.COLORS[i], "black", 0.003)

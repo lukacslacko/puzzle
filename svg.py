@@ -78,6 +78,12 @@ class Path:
         self.current = end
         return self
 
+    def semicircular_tab(self, center: complex, radius: float, inwards: bool):
+        middle = center + 1j * (self.current - center)
+        end = center - (self.current - center)
+        self.circular_tab(center, middle, middle, radius, inwards)
+        return self.circular_tab(center, end, end, radius, inwards)
+
     def __str__(self):
         return " ".join(map(str, self.path))
 
@@ -106,7 +112,13 @@ class SVGTransformation:
 
 class SVG:
     def __init__(
-        self, center: complex, size: float, width: int, height: int, filename: str, suffix: str = ""
+        self,
+        center: complex,
+        size: float,
+        width: int,
+        height: int,
+        filename: str,
+        suffix: str = "",
     ):
         self.center = center
         self.size = size
@@ -161,7 +173,7 @@ class SVG:
             % (point.real, point.imag, anchor, baseline, font_size, name)
         )
 
-    def mark_all_caps(self, named_points_dicts: list[dict], size: float=0.2) -> None:
+    def mark_all_caps(self, named_points_dicts: list[dict], size: float = 0.2) -> None:
         for named_points_dict in named_points_dicts:
             for name, value in named_points_dict.items():
                 if (
