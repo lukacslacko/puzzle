@@ -22,6 +22,12 @@ def line_intersection(
 def along(start: complex, end: complex, distance: float) -> complex:
     return start + (end - start) * distance / abs(end - start)
 
+def perpendicular_projection(start: complex, end: complex, point: complex) -> complex:
+    v_point = point - start
+    v_end = end - start
+    v_end /= abs(v_end)
+    return along(start, end, (v_point/v_end).real)
+
 def area(a, b, c):
     return (
         numpy.linalg.det(

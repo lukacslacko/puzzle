@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="700" height="700">
+<g transform="translate(350,350) scale(350)">
+<g transform="translate(0.000000,0.000000) scale(0.833333)">
+<g transform="translate(0.000000,0.000000)">
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 0.0 0.8506508083520399 L -0.8090169943749473 0.2628655560595668 L -0.5 -0.6881909602355867 L 0.4999999999999999 -0.6881909602355867 L 0.8090169943749473 0.2628655560595667 L 0.0 0.8506508083520399 L -0.5 -0.6881909602355867' fill='transparent' stroke='black' stroke-width='0.01' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M -0.6545084971874737 0.37512255020446306 L -0.25 0.0812299240582266' fill='transparent' stroke='black' stroke-width='0.01' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M -0.12537036501256343 0.46480049990322114 L 0.4999999999999999 -0.6881909602355867' fill='transparent' stroke='black' stroke-width='0.01' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M -0.37537036501256343 -0.30462038439059225 L 0.14026309145685928 -0.024946254934202772' fill='transparent' stroke='black' stroke-width='0.01' />
+</g></g>
+<g transform='translate(0,0)'>
+<g transform='rotate(0)'>
+<path d='M 0.1716589907055623 -0.08283067949660694 L 0.8090169943749473 0.2628655560595667' fill='transparent' stroke='black' stroke-width='0.01' />
+</g></g>
+<text font-family="monospace" x="0.000000" y="0.850651" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">A</text>
+<text font-family="monospace" x="-0.809017" y="0.262866" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">B</text>
+<text font-family="monospace" x="-0.500000" y="-0.688191" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">C</text>
+<text font-family="monospace" x="0.500000" y="-0.688191" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">D</text>
+<text font-family="monospace" x="0.809017" y="0.262866" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">E</text>
+<text font-family="monospace" x="-0.125370" y="0.464800" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">F</text>
+<text font-family="monospace" x="-0.250000" y="0.081230" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">G</text>
+<text font-family="monospace" x="0.171659" y="-0.082831" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">P</text>
+<text font-family="monospace" x="-0.654508" y="0.375123" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">H</text>
+<text font-family="monospace" x="-0.375370" y="-0.304620" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">K</text>
+<text font-family="monospace" x="0.140263" y="-0.024946" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">Q</text>
+<text font-family="monospace" x="0.000000" y="0.850651" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">A</text>
+<text font-family="monospace" x="-0.809017" y="0.262866" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">B</text>
+<text font-family="monospace" x="-0.500000" y="-0.688191" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">C</text>
+<text font-family="monospace" x="0.500000" y="-0.688191" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">D</text>
+<text font-family="monospace" x="0.809017" y="0.262866" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">E</text>
+<text font-family="monospace" x="-0.125370" y="0.464800" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">F</text>
+<text font-family="monospace" x="-0.250000" y="0.081230" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">G</text>
+<text font-family="monospace" x="0.171659" y="-0.082831" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">P</text>
+<text font-family="monospace" x="-0.654508" y="0.375123" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">H</text>
+<text font-family="monospace" x="-0.375370" y="-0.304620" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">K</text>
+<text font-family="monospace" x="0.140263" y="-0.024946" text-anchor="middle" dominant-baseline="hanging" font-size="0.100000">Q</text></g></g></g></svg>
