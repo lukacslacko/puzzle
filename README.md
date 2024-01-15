@@ -97,6 +97,10 @@ Note that at IX and its centrally symmetric partner we needed to add a cross con
 
 Also note that while the outer edges of the octagon and the triangle also intersect at points IY and IZ, but we don't actually need cross connector pieces there (which would end up being really tiny, IY being so close to W) because luckily the cross connector around IX and its symmetric partner hold everything together.
 
+### Square to pentagon
+
+![Square to pentagon](square-pentagon.svg)
+
 ## Considerations for 3D printing
 
 I've used OpenSCAD to print the pieces for these dissections, with a small offset of about -0.07 millimeters and a linear extrusion of 4 millimeters, resulting neat, snug jigsaw pieces which hold together well.
