@@ -96,7 +96,6 @@ pieces = [
     svg.Path(A).line(WA).linear_tab(WW,r).linear_tab(WE,r).line(EA).linear_tab(EP,r).line(P).line(Q).linear_tab(QW,r).linear_tab(QF,r).line(F).line(X).linear_tab(FA,r,False).line(A),
     svg.Path(F).line(QF).linear_tab(QQ,r).linear_tab(QK,r).line(K).line(GC).linear_tab(GH,r,False).linear_tab(GA,r,False).line(F),
     svg.Path(P).line(EP).linear_tab(ED,r,False).line(DE).linear_tab(DP,r,False).line(P),
-    svg.Path(QQ).line(QW).linear_tab(Q,r,False).linear_tab(QV,r,False).line(QQ),
 ]
 
 def draw_penta():
