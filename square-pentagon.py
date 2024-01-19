@@ -114,4 +114,29 @@ def draw_penta():
         for i, p in enumerate(pieces):
             s.draw_path(p, svg.COLORS[i], "black", 0.003)
 
+def draw_square():
+    with svg.SVG(-5+2j, 1.2, 700, 700, __file__, "-square") as s:
+        for p in [
+            svg.Path(P).line(P+D-F).line(P+(1+1j)*(D-F)).line(P+1j*(D-F)).line(P),
+            svg.Path(WW+D-F).line(2*W-WW+D-F),
+            svg.Path(R+E-K).line(2*V-R+E-K),
+        ]:
+            s.draw_path(p, "transparent", "black", 0.003)
+#        for i, p in enumerate(pieces):
+#            s.draw_path(p, svg.COLORS[i], "black", 0.003)
+        s.draw_path(pieces[5], svg.COLORS[5], "black", 0.003)
+        with s.transformation(shift=D-F):
+            s.draw_path(pieces[3], svg.COLORS[3], "black", 0.003)
+        with s.transformation(shift=E-K):
+            s.draw_path(pieces[2], svg.COLORS[2], "black", 0.003)
+        with s.transformation(shift=D-K+E-F):
+            s.draw_path(pieces[4], svg.COLORS[4], "black", 0.003)
+            with s.transformation(shift=(Q+QQ)/2), s.transformation(rotate=180), s.transformation(shift=-(Q+QQ)/2):
+                s.draw_path(pieces[6], svg.COLORS[6], "black", 0.003)
+        with s.transformation(shift=V+E-K), s.transformation(rotate=36), s.transformation(shift=-G):
+            s.draw_path(pieces[0], svg.COLORS[0], "black", 0.003)
+            with s.transformation(shift=G), s.transformation(rotate=180), s.transformation(shift=-G):
+                s.draw_path(pieces[1], svg.COLORS[1], "black", 0.003)
+
 draw_penta()
+draw_square()
