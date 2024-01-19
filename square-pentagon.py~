@@ -100,7 +100,6 @@ pieces = [
 ]
 
 def draw_penta():
-    with svg.SVG(0, 1, 500, 500, __file__) as s:
         #s.mark_all_caps([globals(), locals()], size=0.1)
         for path in [
             svg.Path(A).line(B).line(C).line(D).line(E).line(A),
@@ -115,7 +114,6 @@ def draw_penta():
             s.draw_path(p, svg.COLORS[i], "black", 0.003)
 
 def draw_square():
-    with svg.SVG(-3, 1, 500, 500, __file__, "-square") as s, s.transformation(shift=-1+0.2j):
         for p in [
             svg.Path(P).line(P+D-F).line(P+(1+1j)*(D-F)).line(P+1j*(D-F)).line(P),
             svg.Path(WW+D-F).line(2*W-WW+D-F),
@@ -138,5 +136,12 @@ def draw_square():
             with s.transformation(shift=G), s.transformation(rotate=180), s.transformation(shift=-G):
                 s.draw_path(pieces[1], svg.COLORS[1], "black", 0.003)
 
-draw_penta()
-draw_square()
+with svg.SVG(0, 1, 500, 500, __file__) as s:
+    draw_penta()
+with svg.SVG(-3, 1, 500, 500, __file__, "-square") as s, s.transformation(shift=-1+0.3j):
+    draw_square()
+with svg.SVG(0, 1, 800, 400, __file__, "-both") as s:
+    with s.transformation(shift=-1):
+        draw_penta()
+    with s.transformation(shift=0.3j):
+        dra_square()

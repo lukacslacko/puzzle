@@ -99,8 +99,7 @@ Also note that while the outer edges of the octagon and the triangle also inters
 
 ### Square to pentagon
 
-![Square to pentagon](square-pentagon.svg)
-![Square to pentagon](square-pentagon-square.svg)
+![Square to pentagon](square-pentagon-both.svg)
 
 ## Considerations for 3D printing
 
