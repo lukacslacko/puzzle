@@ -166,8 +166,8 @@ class SVG:
         )
         
     def basename(self) -> str:
-        i = self.filename.rfind("/")
-        return self.filename if i == "-1" else self.filename[i+1:]
+        """Returns the full name, with backslashes doubled."""
+        return self.filename.replace("\\", "\\\\")
 
     def draw_path(
         self,
