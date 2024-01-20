@@ -148,7 +148,9 @@ def draw_square():
                 s.draw_path(pieces[1], svg.COLORS[1], "black", 0.003)
 
 with svg.SVG(0, 1, 500, 500, __file__) as s:
-    s.mark_all_caps([globals(), locals()], size=0.05)
+    #s.mark_all_caps([globals(), locals()], size=0.05)
+    for i, p in enumerate(pieces + connectors):
+        s.mark(p.center(), str(i), "mc", size=0.05)
     draw_penta()
 with svg.SVG(-3, 1, 500, 500, __file__, "-square") as s, s.transformation(shift=-1+0.3j):
     draw_square()

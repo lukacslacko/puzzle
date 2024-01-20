@@ -25,19 +25,23 @@ class Path:
     def __init__(self):
         self.path = []
         self.current = None
+        self.vertices = []
 
     def __init__(self, start: complex):
         self.path = ["M", start.real, start.imag]
         self.current = start
+        self.vertices = [start]
 
     def move(self, start: complex):
         self.path += ["M", start.real, start.imag]
         self.current = start
+        self.vertices.append(start)
         return self
 
     def line(self, end: complex):
         self.path += ["L", end.real, end.imag]
         self.current = end
+        self.vertices.append(end)
         return self
 
     def arc(
@@ -54,6 +58,7 @@ class Path:
             end.imag,
         ]
         self.current = end
+        self.vertices.append(end)
 
     def linear_tab(self, end: complex, radius: float = None, left: bool = None):
         radius = radius if radius is not None else self.default_linear_tab_radius
@@ -157,6 +162,10 @@ class SVG:
         self.svg.append(
             '<g transform="translate(%f,%f)">' % (-center.real, -center.imag)
         )
+        
+    def basename(self) -> str:
+        i = self.filename.rfind("/")
+        return self.filename if i == "-1" else self.filename[i+1:]
 
     def draw_path(
         self,

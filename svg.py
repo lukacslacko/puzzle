@@ -25,19 +25,23 @@ class Path:
     def __init__(self):
         self.path = []
         self.current = None
+        self.vertices = []
 
     def __init__(self, start: complex):
         self.path = ["M", start.real, start.imag]
         self.current = start
+        self.vertices = [start]
 
     def move(self, start: complex):
         self.path += ["M", start.real, start.imag]
         self.current = start
+        self.vertices.append(start)
         return self
 
     def line(self, end: complex):
         self.path += ["L", end.real, end.imag]
         self.current = end
+        self.vertices.append(end)
         return self
 
     def arc(
@@ -88,6 +92,9 @@ class Path:
         end = center - (self.current - center)
         self.circular_tab(center, middle, middle, radius, inwards)
         return self.circular_tab(center, end, end, radius, inwards)
+        
+    def center(self):
+        return sum(self.vertices) / len(self.vertices)
 
     def __str__(self):
         return " ".join(map(str, self.path))

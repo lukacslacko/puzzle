@@ -66,7 +66,7 @@ EA = along(E, A, rho)
 #WA = along(W, A, rho)
 #WW = W+1j*(WA-W)
 
-ang_E = (A-E)/(Q-E)
+ang_E = (A-E)/(P-E)
 ang_E /= abs(ang_E)
 
 KC = along(K, C, rho)
@@ -149,6 +149,8 @@ def draw_square():
 
 with svg.SVG(0, 1, 500, 500, __file__) as s:
     s.mark_all_caps([globals(), locals()], size=0.05)
+    for i, p in enumerate(pieces + connectors):
+        s.mark(p.center(), str(i), "mc", size=0.05)
     draw_penta()
 with svg.SVG(-3, 1, 500, 500, __file__, "-square") as s, s.transformation(shift=-1+0.3j):
     draw_square()
