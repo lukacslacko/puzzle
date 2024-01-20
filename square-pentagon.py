@@ -46,9 +46,9 @@ TA = along(T, A, rho)
 TH = along(T, H, rho)
 S = T + (TH-T)*eps
 
-UB = along(U, B, rho)
-UC = along(U, C, rho)
-UU = U+1j*(UC-U)
+#UB = along(U, B, rho)
+#UC = along(U, C, rho)
+#UU = U+1j*(UC-U)
 
 VC = along(V, C, rho)
 VD = along(V, D, rho)
@@ -62,9 +62,9 @@ ED = along(E, D, rho)
 EP = along(E, P, rho)
 EA = along(E, A, rho)
 
-WE = along(W, E, rho)
-WA = along(W, A, rho)
-WW = W+1j*(WA-W)
+#WE = along(W, E, rho)
+#WA = along(W, A, rho)
+#WW = W+1j*(WA-W)
 
 ang_E = (A-E)/(Q-E)
 ang_E /= abs(ang_E)
@@ -90,13 +90,24 @@ QW = QQ+(Q-QK)
 #    svg.Path(A).line(GA).circular_tab(G, GH, GH, r, True).line(H).line(TH).circular_tab(T,S,S,r,True).circular_tab(T,TA,TA,r,True).line(A),
 #]
 pieces = [
-    svg.Path(H).line(GH).linear_tab(GC,r).line(C).line(UC).linear_tab(UU,r).linear_tab(UB,r).line(B).line(H),
+    (svg.Path(H).line(GH).linear_tab(GC,r).line(C)#.line(UC).linear_tab(UU,r).linear_tab(UB,r)
+    .line(B).line(H)),
     svg.Path(A).line(GA).linear_tab(GH,r).line(H).line(TH).linear_tab(S,r).linear_tab(TA,r).line(A),
     svg.Path(Q).line(DP).linear_tab(DC,r,False).linear_tab(R,r).linear_tab(VC,r).line(C).line(KC).linear_tab(Y,r).line(K).line(QK).linear_tab(QV,r).linear_tab(Q,r),
-    svg.Path(A).line(WA).linear_tab(WW,r).linear_tab(WE,r).line(EA).linear_tab(EP,r).line(P).line(Q).linear_tab(QW,r).linear_tab(QF,r).line(F).line(X).linear_tab(FA,r,False).line(A),
+    (svg.Path(A)#.line(WA).linear_tab(WW,r).linear_tab(WE,r)
+    .line(EA).linear_tab(EP,r).line(P).line(Q).linear_tab(QW,r).linear_tab(QF,r).line(F).line(X).linear_tab(FA,r,False).line(A)),
     svg.Path(F).line(QF).linear_tab(QQ,r).linear_tab(QK,r).line(K).line(GC).linear_tab(GH,r,False).linear_tab(GA,r,False).line(F),
     svg.Path(P).line(EP).linear_tab(ED,r,False).line(DE).linear_tab(DP,r,False).line(P),
     svg.Path(QQ).line(QW).linear_tab(Q,r,False).linear_tab(QV,r,False).line(QQ),
+]
+
+connectors = [
+    svg.Path(S).linear_tab(TA,r).line(TH).linear_tab(S,r),
+    svg.Path(F).line(X).linear_tab(FA,r,False).line(F),
+    svg.Path(QQ).line(QW).linear_tab(QF,r).linear_tab(QQ,r),
+    svg.Path(K).line(KC).linear_tab(Y,r).line(K),
+    svg.Path(E).line(EA).linear_tab(EP,r).linear_tab(ED,r,False).line(E),
+    svg.Path(D).line(DE).linear_tab(DP,r,False).linear_tab(DC,r,False).line(D),
 ]
 
 def draw_penta():
@@ -110,13 +121,13 @@ def draw_penta():
                 "black",
                 0.003,
             )
-        for i, p in enumerate(pieces):
+        for i, p in enumerate(pieces + connectors):
             s.draw_path(p, svg.COLORS[i], "black", 0.003)
 
 def draw_square():
         for p in [
             svg.Path(P).line(P+D-F).line(P+(1+1j)*(D-F)).line(P+1j*(D-F)).line(P),
-            svg.Path(WW+D-F).line(2*W-WW+D-F),
+            #svg.Path(WW+D-F).line(2*W-WW+D-F),
             svg.Path(R+E-K).line(2*V-R+E-K),
         ]:
             s.draw_path(p, "transparent", "black", 0.003)
@@ -137,6 +148,7 @@ def draw_square():
                 s.draw_path(pieces[1], svg.COLORS[1], "black", 0.003)
 
 with svg.SVG(0, 1, 500, 500, __file__) as s:
+    #s.mark_all_caps([globals(), locals()], size=0.05)
     draw_penta()
 with svg.SVG(-3, 1, 500, 500, __file__, "-square") as s, s.transformation(shift=-1+0.3j):
     draw_square()
@@ -145,3 +157,10 @@ with svg.SVG(0, 1, 800, 400, __file__, "-both") as s:
         draw_penta()
     with s.transformation(shift=0.3j):
         draw_square()
+
+scad = []
+for i, p in enumerate(pieces + connectors):
+    with svg.SVG(0, 100, 500, 500, __file__, f"-{i}") as s, s.transformation(scale=100):
+        s.draw_path(p, "black", "black", 0)
+        scad.append(f'u() import("{s.basename()}");')
+print("\n".join(scad))

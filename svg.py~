@@ -157,10 +157,6 @@ class SVG:
         self.svg.append(
             '<g transform="translate(%f,%f)">' % (-center.real, -center.imag)
         )
-        
-    def basename(self) -> str:
-        i = self.filename.rfind("/")
-        return self.filename if i == "-1" else self.filename[i+1:]
 
     def draw_path(
         self,
