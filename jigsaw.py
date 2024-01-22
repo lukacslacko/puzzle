@@ -1,4 +1,5 @@
 import cmath
+import math
 import numpy
 
 Path = "svg.Path"
@@ -59,6 +60,20 @@ def linear_tab(
         along(start_rounding_center, tab_center, rounding_radius),
         sweep=left,
     )
+    
+    start_touch_dir = math.degrees(cmath.phase(start_touch_point - start_rounding_center))
+    end_touch_dir = math.degrees(cmath.phase(end_touch_point - end_rounding_center))
+    start_tab_dir = math.degrees(cmath.phase(tab_center - start_rounding_center))
+    end_tab_dir = math.degrees(cmath.phase(tab_center - end_rounding_center))
+    def swap(a,b):
+        if left:
+            return b,a
+        else:
+            return a,b
+    path._dxf_arc(start_rounding_center, rounding_radius, *swap(start_tab_dir, start_touch_dir))
+    path._dxf_arc(end_rounding_center, rounding_radius, *swap(end_touch_dir, end_tab_dir))
+    path._dxf_arc(tab_center, radius, *swap(180+start_tab_dir, 180+end_tab_dir))
+    
     path.arc(
         radius,
         along(end_rounding_center, tab_center, rounding_radius),

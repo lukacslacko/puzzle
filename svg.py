@@ -26,20 +26,55 @@ class Path:
         self.path = []
         self.current = None
         self.vertices = []
+        self.dxf = []
+        self.dxf_scale = 100
 
-    def __init__(self, start: complex):
+    def __init__(self, start: complex, scale_for_dxf: float = 40):
         self.path = ["M", start.real, start.imag]
         self.current = start
         self.vertices = [start]
+        self.dxf = []
+        self.dxf_scale = scale_for_dxf
 
     def move(self, start: complex):
         self.path += ["M", start.real, start.imag]
         self.current = start
         self.vertices.append(start)
+        self.dxf = []
         return self
+
+    def _dxf(self, name, params):
+        item = ["0", name]
+        for k, v in params.items():
+            item.append(str(k))
+            item.append(str(v))
+        self.dxf.append("\n".join(item))
+
+    def _dxf_line(self, start: complex, end: complex):
+        if abs(start - end) < 1e-6:
+            return
+        self._dxf("LINE", {"10": self.dxf_scale * start.real, "20": self.dxf_scale * start.imag, "11": self.dxf_scale * end.real, "21": self.dxf_scale * end.imag})
+
+    def _dxf_arc(self, center: complex, radius: float, start: float, end: float):
+        while start < 0:
+            start += 360
+        while end < 0:
+            end += 360
+        while start >= 360:
+            start -= 360
+        while end >= 360:
+            end -= 360
+        start, end = end, start
+        if start < end:
+            start += 360
+        for i in range(32):
+            s = start + (end-start) * (i+1) / 32
+            e = start + (end-start) * i / 32
+            self._dxf("ARC", {"10": self.dxf_scale * center.real, "20": self.dxf_scale * center.imag, "40": self.dxf_scale * radius, "50": s, "51": e})
 
     def line(self, end: complex):
         self.path += ["L", end.real, end.imag]
+        self._dxf_line(self.current, end)
         self.current = end
         self.vertices.append(end)
         return self
@@ -98,6 +133,14 @@ class Path:
 
     def __str__(self):
         return " ".join(map(str, self.path))
+
+    def to_dxf(self, name, suffix):
+        n = name.split("/")[-1].split("\\")[-1].split(".")[0]
+        with open(f"{n}-{suffix}.dxf", "w") as f:
+            f.write("0\nSECTION\n2\nENTITIES\n")
+            f.write("\n".join(self.dxf))
+            f.write("\n0\nENDSEC\n0\nEOF\n")
+
 
 
 class SVGTransformation:

@@ -50,3 +50,9 @@ with svg.SVG(0, 1.1, 700, 300, __file__) as s:
         s.draw_path(corner(0, -1, s), svg.COLORS[1])
     with s.transformation(shift=0, rotate=180-45):
         s.draw_path(corner(0, -1, s), svg.COLORS[1])
+
+with svg.SVG(0, 1, 300, 300, __file__, "-corner") as s:
+    s.draw_path(corner(-.5j, 1, s), "black", "black", 0)
+
+with svg.SVG(0, 1, 300, 300, __file__, "-edge") as s:
+    s.draw_path(edge(0, 1+1j), "black", "black", 0)
