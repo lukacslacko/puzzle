@@ -54,29 +54,25 @@ def linear_tab(
     start_rounding_center = start_touch_point + vertical * rounding_radius
     end_rounding_center = end_touch_point + vertical * rounding_radius
 
+    start_to_tab = along(start_rounding_center, tab_center, rounding_radius)
+    end_to_tab = along(end_rounding_center, tab_center, rounding_radius)
+
+    print("line to start touch")
     path.line(start_touch_point)
+    print("done")
     path.arc(
         rounding_radius,
-        along(start_rounding_center, tab_center, rounding_radius),
+        start_to_tab,
         sweep=left,
     )
     
-    start_touch_dir = math.degrees(cmath.phase(start_touch_point - start_rounding_center))
-    end_touch_dir = math.degrees(cmath.phase(end_touch_point - end_rounding_center))
-    start_tab_dir = math.degrees(cmath.phase(tab_center - start_rounding_center))
-    end_tab_dir = math.degrees(cmath.phase(tab_center - end_rounding_center))
-    def swap(a,b):
-        if left:
-            return b,a
-        else:
-            return a,b
-    path._dxf_arc(start_rounding_center, rounding_radius, *swap(start_tab_dir, start_touch_dir))
-    path._dxf_arc(end_rounding_center, rounding_radius, *swap(end_touch_dir, end_tab_dir))
-    path._dxf_arc(tab_center, radius, *swap(180+start_tab_dir, 180+end_tab_dir))
+    path._dxf_arc(start_rounding_center, rounding_radius, start_touch_point, start_to_tab, long=False, clockwise=False)
+    path._dxf_arc(tab_center, radius, start_to_tab, end_to_tab, long=True, clockwise=False)
+    path._dxf_arc(end_rounding_center, rounding_radius, end_to_tab, end_touch_point, long=False, clockwise=False)
     
     path.arc(
         radius,
-        along(end_rounding_center, tab_center, rounding_radius),
+        end_to_tab,
         large_arc=True,
         sweep=not left,
     )

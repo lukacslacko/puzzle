@@ -26,51 +26,42 @@ class Path:
         self.path = []
         self.current = None
         self.vertices = []
-        self.dxf = []
+        self.dxf_pts = []
         self.dxf_scale = 100
 
     def __init__(self, start: complex, scale_for_dxf: float = 40):
         self.path = ["M", start.real, start.imag]
         self.current = start
         self.vertices = [start]
-        self.dxf = []
+        self.dxf_pts = []
         self.dxf_scale = scale_for_dxf
 
     def move(self, start: complex):
         self.path += ["M", start.real, start.imag]
         self.current = start
         self.vertices.append(start)
-        self.dxf = []
+        self.dxf_pts = []
         return self
-
-    def _dxf(self, name, params):
-        item = ["0", name]
-        for k, v in params.items():
-            item.append(str(k))
-            item.append(str(v))
-        self.dxf.append("\n".join(item))
 
     def _dxf_line(self, start: complex, end: complex):
         if abs(start - end) < 1e-6:
+            print("skip")
             return
-        self._dxf("LINE", {"10": self.dxf_scale * start.real, "20": self.dxf_scale * start.imag, "11": self.dxf_scale * end.real, "21": self.dxf_scale * end.imag})
+        self.dxf_pts += ["10", self.dxf_scale * end.real, "20", self.dxf_scale * end.imag, "11", self.dxf_scale * end.real, "21", self.dxf_scale * end.imag]
 
-    def _dxf_arc(self, center: complex, radius: float, start: float, end: float):
-        while start < 0:
-            start += 360
-        while end < 0:
-            end += 360
-        while start >= 360:
-            start -= 360
-        while end >= 360:
-            end -= 360
-        start, end = end, start
-        if start < end:
-            start += 360
-        for i in range(32):
-            s = start + (end-start) * (i+1) / 32
-            e = start + (end-start) * i / 32
-            self._dxf("ARC", {"10": self.dxf_scale * center.real, "20": self.dxf_scale * center.imag, "40": self.dxf_scale * radius, "50": s, "51": e})
+    def _dxf_arc(self, center: complex, radius: float, start: complex, end: complex, long: bool = False, clockwise: bool = False):
+        angle = cmath.phase((end - center) / (start - center))
+        if long:
+            if angle < 0:
+                angle += 2*cmath.pi
+            else:
+                angle -= 2*cmath.pi
+        n = 2 + 2 * int(abs(angle) * radius * self.dxf_scale)
+        print(n)
+        radial = cmath.exp((-1j if clockwise else 1j) * (angle/n))
+        for i in range(n):
+            p = center + (start-center) * (radial ** (i+1))
+            self.dxf_pts += ["10", self.dxf_scale * p.real, "20", self.dxf_scale * p.imag]
 
     def line(self, end: complex):
         self.path += ["L", end.real, end.imag]
@@ -137,8 +128,9 @@ class Path:
     def to_dxf(self, name, suffix):
         n = name.split("/")[-1].split("\\")[-1].split(".")[0]
         with open(f"{n}-{suffix}.dxf", "w") as f:
-            f.write("0\nSECTION\n2\nENTITIES\n")
-            f.write("\n".join(self.dxf))
+            f.write("0\nSECTION\n2\nENTITIES\n0\nLWPOLYLINE\n")
+            f.write(f"90\n{len(self.dxf_pts) // 4}\n70\n1\n")
+            f.write("\n".join(map(str, self.dxf_pts)))
             f.write("\n0\nENDSEC\n0\nEOF\n")
 
 
