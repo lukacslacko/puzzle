@@ -14,8 +14,8 @@ G = -E
 F = -D
 
 pieces = [
-    svg.Path(A).line(C).linear_tab(E,rho,False).linear_tab(D,rho,False).line(A),
-    svg.Path(C).line(B).line(F).linear_tab(G,rho).line(E).linear_tab(C,rho),
+    svg.Path(A).line(C).linear_tab(E,rho,False,inside=True).linear_tab(D,rho,False,inside=True).line(A),
+    svg.Path(C).line(B).line(F).linear_tab(G,rho,inside=False).line(E).linear_tab(C,rho,inside=False),
 ]
 
 with svg.SVG(0, 1, 300, 300, __file__) as s:

@@ -85,10 +85,10 @@ class Path:
         ]
         self.current = end
 
-    def linear_tab(self, end: complex, radius: float = None, left: bool = None):
+    def linear_tab(self, end: complex, radius: float = None, left: bool = None, inside: bool = True):
         radius = radius if radius is not None else self.default_linear_tab_radius
         left = left if left is not None else self.default_linear_tab_left
-        jigsaw.linear_tab(self.current, end, radius, self, left=left)
+        jigsaw.linear_tab(self.current, end, radius, self, left=left, inside=inside)
         self.current = end
         return self
 

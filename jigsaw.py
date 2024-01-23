@@ -38,17 +38,21 @@ def area(a, b, c):
     )
 
 def linear_tab(
-    start: complex, end: complex, radius: float, path: Path, *, left: bool
+    start: complex, end: complex, radius: float, path: Path, *, left: bool, dxf_offset: float = 0.05, inside: bool = True
 ) -> complex:
+    dxf_offset *= 1 if inside else -1
+    dxf_offset /= path.dxf_scale
+    middle = (start + end) / 2
     horizontal = end - start
     horizontal /= abs(horizontal)
     vertical = horizontal * (1j if left else -1j)
-    middle = (start + end) / 2
-    tab_center = middle + vertical * radius
+    tab_center = middle + vertical * (radius + dxf_offset)
     rounding_radius = radius * 0.2
     touch_distance = cmath.sqrt(
         (radius + rounding_radius) ** 2 - (radius - rounding_radius) ** 2
     )
+    rounding_radius += dxf_offset
+    radius -= dxf_offset
     start_touch_point = middle - horizontal * touch_distance
     end_touch_point = middle + horizontal * touch_distance
     start_rounding_center = start_touch_point + vertical * rounding_radius
