@@ -38,7 +38,7 @@ def area(a, b, c):
     )
 
 def linear_tab(
-    start: complex, end: complex, radius: float, path: Path, *, left: bool, dxf_offset: float = 0.05, inside: bool = True
+    start: complex, end: complex, radius: float, path: Path, *, left: bool, dxf_offset: float = 0.1, inside: bool = True
 ) -> complex:
     dxf_offset *= 1 if inside else -1
     dxf_offset /= path.dxf_scale
