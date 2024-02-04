@@ -1,7 +1,7 @@
 import svg
 import cmath
 
-r = 0.7
+r = .7
 rho = 0.15
 a = 1.5
 
@@ -19,6 +19,11 @@ pieces = [
 ]
 
 with svg.SVG(0, 1, 300, 300, __file__) as s:
-    for i, p in enumerate(pieces):
-        s.draw_path(p, svg.COLORS[i], "black", 0.003)
-        p.to_dxf(__file__, str(i))
+    # for i, p in enumerate(pieces):
+    #     s.draw_path(p, svg.COLORS[i], "black", 0.003)
+    #     p.to_dxf(__file__, str(i))
+    outline = ["transparent", "black", 0.003]
+    s.draw_path(svg.Path(A).line(B).line(-A).line(-B).line(A), *outline)
+    s.draw_path(svg.Path(D).linear_tab(E).linear_tab(C), *outline)
+    s.draw_path(svg.Path(-D).linear_tab(-E).linear_tab(-C), *outline)    
+    s.draw_path(svg.Path(E).line(-E), *outline)

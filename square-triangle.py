@@ -112,11 +112,34 @@ with svg.SVG(0, 1.65, 700, 300, __file__) as s:
     with s.transformation(shift=-1.5):
         for i, piece in enumerate(hinged_pieces):
             s.draw_path(piece, svg.COLORS[i])
+            piece.to_dxf(__file__, str(i))
         for i, hinge in enumerate(hinges):
             s.draw_path(hinge, svg.COLORS[i + 4])
+            hinge.to_dxf(__file__, str(i+4))
+
 
     with s.transformation(shift=0.5 + 1j):
         for i, piece in enumerate(tri_hinged_pieces):
             s.draw_path(piece, svg.COLORS[i])
         for i, hinge in enumerate(tri_hinges):
             s.draw_path(hinge, svg.COLORS[i + 4])
+
+with svg.SVG(0, 1.65, 700, 700, __file__, "-c") as s:
+    for i, piece in enumerate(hinged_pieces):
+        s.draw_path(piece, svg.COLORS[i])
+        piece.to_dxf(__file__, str(i))
+    for i, hinge in enumerate(hinges):
+        s.draw_path(hinge, svg.COLORS[i + 4])
+        hinge.to_dxf(__file__, str(i+4))
+    s.mark_all_caps([globals(), locals()])
+
+with svg.SVG(0, 1.65, 700, 700, __file__, "-d") as s:
+    outline = ["transparent", "black", 0.003]
+    s.draw_path(svg.Path(A).line(B).line(C).line(D).line(A), *outline)
+    s.draw_path(svg.Path(TD).linear_tab(TR).linear_tab(TC), *outline)
+    s.draw_path(svg.Path(QC).linear_tab(QR).linear_tab(QB), *outline)
+    s.draw_path(svg.Path(PB).linear_tab(PR).linear_tab(PA), *outline)
+    s.draw_path(svg.Path(SA).linear_tab(SR).linear_tab(SD), *outline)
+    s.draw_path(svg.Path(TR).line(SR), *outline)
+    s.draw_path(svg.Path(QR).line(R).line(PR), *outline)
+    # s.mark_all_caps([globals(), locals()])

@@ -1,5 +1,6 @@
 import cmath
 import jigsaw
+import re
 
 COLORS = [
     "pink",
@@ -27,9 +28,9 @@ class Path:
         self.current = None
         self.vertices = []
         self.dxf_pts = []
-        self.dxf_scale = 100
+        self.dxf_scale = 150
 
-    def __init__(self, start: complex, scale_for_dxf: float = 40):
+    def __init__(self, start: complex, scale_for_dxf: float = 60):
         self.path = ["M", start.real, start.imag]
         self.current = start
         self.vertices = [start]
@@ -84,6 +85,7 @@ class Path:
             end.imag,
         ]
         self.current = end
+        return self
 
     def linear_tab(self, end: complex, radius: float = None, left: bool = None, inside: bool = True):
         radius = radius if radius is not None else self.default_linear_tab_radius
@@ -133,6 +135,28 @@ class Path:
             f.write("\n".join(map(str, self.dxf_pts)))
             f.write("\n0\nENDSEC\n0\nEOF\n")
 
+def _take(s: str) -> tuple[str, str]:
+    m = re.match(r"[A-Z0-9]*", s)
+    return m[0], s[len(m[0]) :].strip()
+
+def cuts(cuts: str, globs, tab_radius: float) -> list[Path]:
+    result = []
+    for part in map(str.strip, cuts.split(";")):
+        if not part:
+            continue
+        start, part = _take(part)
+        path = Path(eval(start, globs))
+        while part:
+            tab = part[0] if part[0] in "<>" else ""
+            part = part[len(tab) :].strip()
+            point, part = _take(part)
+            p = eval(point, globs)
+            if tab:
+                path.linear_tab(p, left=tab == ">", radius=tab_radius)
+            else:
+                path.line(p)
+        result.append(path)
+    return result
 
 
 class SVGTransformation:

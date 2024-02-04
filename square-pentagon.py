@@ -147,10 +147,19 @@ def draw_square():
             with s.transformation(shift=G), s.transformation(rotate=180), s.transformation(shift=-G):
                 s.draw_path(pieces[1], svg.COLORS[1], "black", 0.003)
 
+with svg.SVG(0, 1, 500, 500, __file__, "-foam") as s:
+    cuts="""
+    A B C D E A; TH>S>TA; EA>EP<ED; DE<DP<VD>R>VC;
+    H GH<GA A; FA>X F QF<QW<Q DP; P EP;
+    QF>QQ QW; QK<QQ QV<QK K Y <KC; C GC<GH; QV>Q;
+    """
+    for p in svg.cuts(cuts, globals(), 0.05):
+        s.draw_path(p, "transparent", "black", 0.003)
+
 with svg.SVG(0, 1, 500, 500, __file__) as s:
-    #s.mark_all_caps([globals(), locals()], size=0.05)
-    for i, p in enumerate(pieces + connectors):
-        s.mark(p.center(), str(i), "mc", size=0.05)
+    s.mark_all_caps([globals(), locals()], size=0.05)
+    # for i, p in enumerate(pieces + connectors):
+    #     s.mark(p.center(), str(i), "mc", size=0.05)
     draw_penta()
 with svg.SVG(-3, 1, 500, 500, __file__, "-square") as s, s.transformation(shift=-1+0.3j):
     draw_square()

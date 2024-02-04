@@ -24,6 +24,11 @@ P = along(A, B, x)
 Q = along(D, A, x)
 T = along(P, P + (1 - 1j) * (Q - P), 0.5)
 U = T + (Q - P) / abs(Q - P)
+PA = along(P, A, abs(P - T))
+QA = along(Q, A, abs(P - T))
+PB = along(P, A, -abs(P - T))
+W = (PA + PB) / 2
+WT = 2 * W - T
 
 print(abs(U - T), abs(T - P), abs(U - Q), abs(Q - P))
 
@@ -90,3 +95,11 @@ with svg.SVG(0, 4, 700, 700, __file__) as s:
                         with s.transformation(shift=0, rotate=90 * i + 90):
                             with s.transformation(shift=-P - Q, rotate=0):
                                 s.draw_path(mirror_hinge, svg.COLORS[i + 4])
+
+outline = ["transparent", "black", 0.003]
+
+with svg.SVG(0, 2, 700, 700, __file__, "-sq") as s:
+    s.draw_path(svg.Path(A).line(B).line(C).line(D).line(A), *outline)
+    for a in [0, 90, 180, 270]:
+        with s.transformation(shift=0, rotate=a):
+            s.draw_path(svg.Path(PA).linear_tab(T, 0.15).line(U).linear_tab(QA, 0.15, left=True), *outline)

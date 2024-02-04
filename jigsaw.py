@@ -38,7 +38,7 @@ def area(a, b, c):
     )
 
 def linear_tab(
-    start: complex, end: complex, radius: float, path: Path, *, left: bool, dxf_offset: float = 0.1, inside: bool = True
+    start: complex, end: complex, radius: float, path: Path, *, left: bool, dxf_offset: float = 0.1, inside: bool = True, small_ratio: float=0.3
 ) -> complex:
     dxf_offset *= 1 if inside else -1
     dxf_offset /= path.dxf_scale
@@ -47,7 +47,7 @@ def linear_tab(
     horizontal /= abs(horizontal)
     vertical = horizontal * (1j if left else -1j)
     tab_center = middle + vertical * (radius + dxf_offset)
-    rounding_radius = radius * 0.2
+    rounding_radius = radius * small_ratio
     touch_distance = cmath.sqrt(
         (radius + rounding_radius) ** 2 - (radius - rounding_radius) ** 2
     )

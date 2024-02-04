@@ -68,6 +68,37 @@ QP = along(Q, P, hinge)
 QR = along(Q, R, hinge)
 QS = along(Q, S, hinge)
 
+W = (S7 - Z) * (1 - 1j) / 2
+MA = S1 + W + S3 - Z
+MB = S1 + W
+MC = Y + W
+MF = (MA + MB) / 2
+
+mm = 0.1
+nn = 0.13
+
+MG = along(MF, MC, mm)
+MBB = along(MF, MB, mm)
+MAA = along(MF, MA, abs(MF-MA))
+MGG = along(MF, MC, abs(MF-MA))
+
+U0 = P + W
+V0 = F + W
+
+U1 = U0*1j
+V1 = V0*1j
+U2 = U1*1j
+V2 = V1*1j
+U3 = U2*1j
+V3 = V2*1j
+
+T0 = S2+W
+K0 = Z+W
+
+VV0 = along(V0, MB, nn)
+VU0 = along(V0, U1, nn)
+VW0 = along(V0, U0, nn)
+
 inner_small = svg.Path(R).line(P).line(QP).circular_tab(Q, QR, QR, tab, False).line(R)
 inner_connector = (
     svg.Path(QP)
@@ -75,6 +106,23 @@ inner_connector = (
     .circular_tab(Q, QS, QS, tab, False)
     .line(QP)
 )
+
+with svg.SVG(0, 1.1, 800, 800, __file__, "-foam") as s:
+    ang = 45 - cmath.phase(U0) * 180 / cmath.pi
+    with s.transformation(rotate=ang):
+        #s.mark_all_caps([globals(), locals()], size=0.06)
+        for p in svg.cuts("""
+        U0 U1 U2 U3 U0; 
+        """, globals(), 0.05):
+            s.draw_path(p, "transparent", "black", 0.003)
+        for angle in [0, 90, 180, 270]:
+            with s.transformation(rotate=angle):
+                for p in svg.cuts("""
+                VV0 MB MC T0 K0; 
+                VU0<VV0<VW0; 
+                MC MG; 
+                MBB>MG MGG<MAA;""", globals(), 0.05):
+                    s.draw_path(p, "transparent", "black", 0.003)
 
 with svg.SVG(0, 2.05, 800, 800, __file__) as s:
     with s.transformation(shift=-1 - 1j):
@@ -84,11 +132,6 @@ with svg.SVG(0, 2.05, 800, 800, __file__) as s:
                 s.draw_path(star_simple, svg.COLORS[i], stroke_width=0.003)
                 s.draw_path(filler_simple, svg.COLORS[i + 4], stroke_width=0.003)
 
-    W = (S7 - Z) * (1 - 1j) / 2
-    MA = S1 + W + S3 - Z
-    MB = S1 + W
-    MC = Y + W
-    MF = (MA + MB) / 2
     corner_simple = svg.Path(MF).line(MB).line(MC).line(MF)
 
     with s.transformation(shift=1 - 1j):
